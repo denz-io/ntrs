@@ -1,4 +1,7 @@
 @extends('layout.main')
+@section('title')
+    Login
+@endsection
 @section('css')
 @endsection
 @section('content')
@@ -23,14 +26,15 @@
                 <div class="card-body">
 		    <div class="row justify-content-center">
 		        <div class="col-md-10">
-                            <form>
+                            <form method="POST" action="/">
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Username</label>
-                                    <input type="email" class="form-control" placeholder="Enter Username">
+                                    <input type="text" class="form-control" name="username" placeholder="Enter Username">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" placeholder="Enter Password">
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form> 

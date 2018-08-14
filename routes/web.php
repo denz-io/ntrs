@@ -11,4 +11,15 @@
 |
 */
 
-Route::resource('/', 'Login');
+Route::group(['middleware' => 'guest'], function() {
+    Route::resource('/', 'Login');
+});
+
+Route::group(['middleware' => 'user'], function() {
+    Route::resource('/home', 'Home');
+    Route::get('/logout', function() {
+        Auth::logout();
+        return redirect('/');
+    });
+});
+
