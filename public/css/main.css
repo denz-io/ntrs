@@ -1,0 +1,16 @@
+body{
+	background: #50a3a2;
+	background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+.logo { width: 80px;  margin-right: 10px; }
+.to-right { float: right; }
+.custom-link { padding-top: 30px !important; font-size: 20px; }
+.custom-drop { font-size: 25px; padding-top: 28px; }
+.login-title { text-align: center; padding-top: 30px; }
+.card { border-radius: 3% !important; }
+
