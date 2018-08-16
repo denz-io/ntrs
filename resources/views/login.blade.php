@@ -25,18 +25,18 @@
                 </div>
                 <div class="card-body">
 		    <div class="row justify-content-center">
-		        <div class="col-md-10">
+		        <div class="col-md-10 login-form-padding">
                             <form method="POST" action="/">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Username</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                                    <input type="text" class="form-control form-custom" name="username" placeholder="Username" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                                    <input type="password" class="form-control form-custom" name="password" placeholder="Password" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <div class="to-center">
+                                    <button type="submit" class="btn btn-primary custom-button">Login</button>
+                                </div>
                             </form> 
                         </div>	
 	            </div>	

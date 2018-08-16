@@ -17,6 +17,8 @@ Route::group(['middleware' => 'guest'], function() {
 
 Route::group(['middleware' => 'user'], function() {
     Route::resource('/home', 'Home');
+    Route::resource('/sikad-registration', 'SikadRegistration');
+    Route::resource('/tricycle-registration', 'TricycleRegistration');
     Route::get('/logout', function() {
         Auth::logout();
         return redirect('/');

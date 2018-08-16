@@ -1,16 +1,113 @@
 body{
-	background: #50a3a2;
-	background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-	background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-	background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 300;
+    background: #50a3a2;
+    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+    background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+    background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
 }
 
-.logo { width: 80px;  margin-right: 10px; }
-.to-right { float: right; }
-.custom-link { padding-top: 30px !important; font-size: 20px; }
-.custom-drop { font-size: 25px; padding-top: 28px; }
-.login-title { text-align: center; padding-top: 30px; }
-.card { border-radius: 3% !important; }
+.message { 
+    padding: 5px; 0px; 5px; 0px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: inline;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.error {
+    background-color: #FA4D3A; 
+}
+
+.success {
+    background-color: #0A8A57; 
+}
+
+.logo { 
+    width: 50px;  
+    margin-right: 10px; 
+}
+
+.custom-nav {
+    border-radius: 20px;
+    padding: 0 !important;
+}
+
+.custom-nav-link {
+    border: none;
+    padding-top: 10px !important; 
+    padding-bottom: 10px !important; 
+    font-size: 15px; 
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.custom-nav-link:hover {
+    border-left: solid 2px #198080;
+    border-right: solid 2px #198080;
+    font-size: 20px; 
+    background-color: #BFF2F2; 
+}
+
+.nav-devider {
+    font-size: 40px; 
+    color: #50a3a2;
+}
+
+
+.custom-link { 
+    font-size: 15px; 
+}
+
+
+.login-title { 
+    text-align: center; 
+    padding-top: 30px; 
+}
+
+.form-custom {
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form-custom-select {
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    height: 55px !important;
+}
+
+.to-right { 
+    float: right; 
+}
+
+.to-center {
+    text-align: center;
+}
+
+.custom-button {
+    border-radius: 30px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    font-size: 20px;
+}
+
+.login-form-padding {
+    padding-bottom: 20px;
+}
 

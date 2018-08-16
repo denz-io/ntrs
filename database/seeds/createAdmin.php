@@ -13,7 +13,8 @@ class createAdmin extends Seeder
     public function run()
     {
         User::create([
-           'name' => 'admin', 
+           'fname' => 'admin', 
+           'lname' => 'admin', 
            'username' => 'admin', 
            'password' => 'admin', 
            'is_admin' => '1', 
