@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sikad extends Model
+class Operator extends Model
 {
     protected $fillable = [
         'association',     
@@ -14,6 +14,7 @@ class Sikad extends Model
         'address',     
         'body_number',     
         'units',     
+        'type',     
         'or_number',     
         'amount_paid',     
         'contact',     

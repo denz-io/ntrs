@@ -21,4 +21,8 @@ function checkTime(i) {
 
 $(document).ready(function() {
     startTime();
+    $('#home-table').DataTable( {
+        "scrollX": true,
+    } );
 });
+

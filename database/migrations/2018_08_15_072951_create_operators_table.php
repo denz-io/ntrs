@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTricyclesTable extends Migration
+class CreateOperatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateTricyclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tricycles', function (Blueprint $table) {
+        Schema::create('operators', function (Blueprint $table) {
             $table->increments('id');
             $table->string('association');
-            $table->string('operator');
+            $table->string('type');
             $table->string('control_number');
+            $table->string('operator');
             $table->string('profile');
             $table->string('address');
             $table->string('body_number');
-            $table->integer('units');
+            $table->integer('units')->nullable();
+            $table->string('or_number');
+            $table->string('amount_paid')->nullable();
             $table->string('contact');
             $table->timestamps();
         });
@@ -34,6 +37,6 @@ class CreateTricyclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tricycles');
+        Schema::dropIfExists('operators');
     }
 }

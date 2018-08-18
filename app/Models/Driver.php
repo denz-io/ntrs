@@ -12,5 +12,6 @@ class Driver extends Model
         'address',
         'contact',
         'type',
+        'sticker-number',
     ];
 }

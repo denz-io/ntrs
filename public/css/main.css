@@ -7,6 +7,11 @@ body{
     font-weight: 300;
 }
 
+.profile {
+    width: 240px;
+    height: 200px;
+}
+
 .message { 
     padding: 5px; 0px; 5px; 0px;
     color: white;
@@ -20,10 +25,6 @@ body{
 
 .shown {
     display: inline;
-}
-
-.card-header {
-    text-align: center;
 }
 
 .error {
@@ -105,6 +106,10 @@ body{
     padding-bottom: 10px;
     width: 400px;
     font-size: 20px;
+}
+
+.custom-button-radius {
+    border-radius: 30px; 
 }
 
 .login-form-padding {

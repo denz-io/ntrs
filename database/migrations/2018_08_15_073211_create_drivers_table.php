@@ -17,8 +17,9 @@ class CreateDriversTable extends Migration
             $table->increments('id');
             $table->string('operator_id');
             $table->string('name');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('contact');
+            $table->string('sticker-number')->nullable();
             $table->string('type');
             $table->timestamps();
         });

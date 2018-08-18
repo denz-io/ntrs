@@ -13,7 +13,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 document.getElementById("snap").addEventListener("click", function() {
-    context.drawImage(video, 0, 0, 300, 250);
+    context.drawImage(video, 0, 0, 300, 240);
     stream.stop();
     $('#canvas').removeClass('hidden').addClass('shown');
     $('#video').removeClass('shown').addClass('hidden');

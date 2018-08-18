@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Association extends Model
 {
     protected $fillable = [
-        'name',
+        'name_short',
+        'name_full',
         'type',
+        'head',
+        'contact',
     ];
 }
