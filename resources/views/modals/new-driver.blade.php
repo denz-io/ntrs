@@ -1,4 +1,4 @@
-<div class="modal fade" id="assoc-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="driver-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,9 +8,10 @@
           </button>
       </div>
       <div class="modal-body">
-        <form action="/driver/{{$operator->id}}" method="POST">
+        <form action="/driver-registration" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
+                <input type="hidden" value="{{$operator->id}}" name="operator_id" readonly>
                 <input type="text" value="{{$operator->type}}" class="form-control form-custom" name="type" placeholder="Name" readonly>
             </div>
             <div class="form-group">
@@ -21,7 +22,7 @@
             </div>
             @if($operator->type == 'Tricycle')
                 <div class="form-group">
-                    <input type="text" class="form-control form-custom" name="head" placeholder="Sticker Number" required>
+                    <input type="text" class="form-control form-custom" name="sticker_number" placeholder="Sticker Number" required>
                 </div>
             @endif
             <div class="form-group">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Operator;
+use App\Models\{ Operator, Association };
 use App\Helpers\PhotoConverter as Photo;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -11,21 +11,20 @@ class Registration extends Controller
 {
     public function index() 
     {
-        return view('registration');
+        return view('registration', [ 'assoc' => Association::all()]);
     }
 
     public function store(Request $request) 
     {
-        $request->type  === 'Sikad-sikad' ? $this->validateSikadRequest($request) : $this->validateTricycleRequest($request); 
+        $this->validateRequest($request); 
         $photo =  new Photo;
         $request_array = $request->toArray();
         $request_array['profile'] = $photo->convert($request->profile); 
-        Operator::create($request_array);
-        Alert::success('Success!', 'Sikad operator has been registered');
-        return redirect()->back();
+        $operator = Operator::create($request_array);
+        return redirect('/operator/' . $operator->id)->withErrors(['success'=>'Registration complete!']);
     }
 
-    private function validateSikadRequest($request)
+    private function validateRequest($request)
     {
         $request->validate([
             'association'    => 'required|max:255',     
@@ -36,19 +35,6 @@ class Registration extends Controller
             'or_number'      => 'required',     
             'control_number' => 'required',     
             'amount_paid'    => 'required|regex:/^\d*(\.\d{1,2})?$/',     
-            'contact'        => 'required',     
-        ]);
-    }
-
-    private function validateTricycleRequest($request)
-    {
-        $request->validate([
-            'association'    => 'required|max:255',     
-            'operator'       => 'required|max:255',     
-            'address'        => 'required|max:255',     
-            'body_number'    => 'required',     
-            'or_number'      => 'required',     
-            'control_number' => 'required',     
             'contact'        => 'required',     
         ]);
     }

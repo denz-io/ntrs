@@ -6,6 +6,9 @@
 @endsection
 @section('content')
     <div class="row justify-content-center">
+        <div class="col-md-12">
+            @include('layout.dashboard-panel')
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
@@ -36,17 +39,18 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="association" class="form-control form-custom-select" id="drop-sikad">
-                                        <option>NAVPEDA</option>
-                                        <option>NASSIDA</option>
-                                        <option>NATRIDA</option>
+                                        @foreach ($assoc as $as )
+                                            @if($as->type == 'Sikad-sikad')
+                                                <option>{{$as->name_short}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                     <select name="association" class="form-control form-custom-select" id="drop-tricycle">
-                                        <option>NABILTODA</option>
-                                        <option>NABILTODA(BLISS)</option>
-                                        <option>NATODA</option>
-                                        <option>ATRODA</option>
-                                        <option>CARNATODA</option>
-                                        <option>NANTA</option>
+                                        @foreach ($assoc as $as )
+                                            @if($as->type == 'Tricycle')
+                                                <option>{{$as->name_short}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -74,7 +78,7 @@
                                     <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
                                 </div>
                                 <div class="to-center">
-                                    <button type="submit" class="btn btn-primary custom-button"><i class="fa fa-floppy-o fa-lg"></i> Register</button>
+                                    <button type="submit" id="register-submit" class="btn btn-primary custom-button"><i class="fa fa-floppy-o fa-lg"></i> Register</button>
                                 </div>
                             </form> 
                         </div>	

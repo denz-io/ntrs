@@ -6,6 +6,7 @@
 @endsection
 @section('content')
     <div class="row row-justified-center">
+        @include('layout.dashboard-panel')
         <div class="col-md-12">
             <div class="card">
                <div class="card-header">
@@ -13,7 +14,7 @@
                    <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right"><i class="fa fa-plus fa-lg"></i> Add new Association</button>
                </div>
                 <div class="card-body">
-		    <table id="assoc-table" class="display" style="width:100%">
+		    <table id="assoc-table" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
 				<th>Association</th>
@@ -27,7 +28,10 @@
                                     <td>{{$association->name_short}}</td>
                                     <td>{{$association->head}}</td>
                                     <td>{{$association->type}}</td>
-                                    <td><a href="{{'/view-operator/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a></td>
+                                    <td>
+                                        <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
+                                        <button onClick="deleteAssoc({{$association->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
+                                        </td>
                                 </tr>
                             @endforeach
 			<tbody>

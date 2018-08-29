@@ -76,10 +76,14 @@
 	<script src="{{ asset('js/main.js') }}"></script>
 	<script src="{{ asset('js/sweetalert2.all.js')}}"></script>
 	@include('sweetalert::alert')
-        @if (count($errors) > 0)
-            @foreach($errors->all() as $error) 
-                <script type="text/javascript">sweetAlert("Oops...", "{{ $error }}", "error")</script>;
-            @endforeach
+	@if($errors->first('success'))
+            <script type="text/javascript">sweetAlert("Success!", "{{ $errors->first('success') }}", "success")</script>;
+	@else
+            @if (count($errors) > 0)
+                @foreach($errors->all() as $error) 
+                    <script type="text/javascript">sweetAlert("Oops...", "{{ $error }}", "error")</script>;
+                @endforeach
+            @endif
         @endif
         @yield('js')
     </body>

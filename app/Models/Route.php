@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Route extends Model
 {
-    protected $fillale = [
+    protected $fillable = [
        'assoc_id', 
        'route',
        'rate',
