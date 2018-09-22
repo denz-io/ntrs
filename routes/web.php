@@ -28,8 +28,13 @@ Route::group(['middleware' => 'user'], function() {
     Route::get('/association/view/{id}', 'Association@view');
     Route::post('/association/update', 'Association@update');
     Route::resource('/driver', 'Driver');
+    Route::get('/driver-delete/{id}', 'Driver@destroy');
     Route::resource('/route', 'Routes');
     Route::get('/route/delete/{id}', 'Routes@destroy');
+    Route::resource('/sms', 'SMS');
+    Route::resource('/print', 'Printing');
+    Route::post('/print-all', 'Printing@printAll');
+    Route::resource('/autosuggest','AutoSuggestion');
     Route::get('/logout', function() {
         Auth::logout();
         return redirect('/');

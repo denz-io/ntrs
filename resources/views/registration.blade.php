@@ -21,13 +21,15 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <div class="row justify-content-center">
-                                        <div class="col-md-12" >
-                                            <video style="margin-left: 156px;" id="video" width="300" height="300" autoplay></video>
-                                            <canvas style="margin-left: 156px; margin-top: 34px;" class="hidden" id="canvas" width="300" height="250"></canvas>
-                                        </div>
                                         <div class="col-md-12" style="text-align:center;">
-                                            <button type="button" class="btn btn-success custom-button" id="snap"><i class="fa fa-camera fa-lg"></i></button>
+                                            <img style="display: none;" id="user_image" src="{{asset('images/profile_default.jpg')}}">
+
+                                            <canvas class="profile" id="image_canvas">
+                                            </canvas>
+
                                             <input type="hidden" id="profile" name="profile" required>
+                                            <input style="display: none;" type="file" id="profile_input" >
+                                            <button type="button" class="btn btn-success custom-button" id="snap"><i class="fa fa-camera fa-lg"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -90,5 +92,4 @@
 @endsection
 @section('js')
     <script src=" {{ asset('js/registration.js')}}"> </script>
-    <script src=" {{ asset('js/photo.js')}}"> </script>
 @endsection

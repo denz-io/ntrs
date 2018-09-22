@@ -5,19 +5,19 @@ $(document).ready(function() {
 $('.message').delay(4000).fadeOut(400);
 
 function startTime() {
-    var today = new Date();
-    var y = today.getFullYear();
-    var mth = today.getMonth() + 1;
-    var d = today.getDate();
-    var h = today.getHours() > 12 ? today.getHours() - 12 : today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    let today = new Date();
+    let y = today.getFullYear();
+    let mth = today.getMonth() + 1;
+    let d = today.getDate();
+    let h = today.getHours() > 12 ? today.getHours() - 12 : today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
     document.getElementById('date').innerHTML = y + '/' + d + '/' + mth; 
     document.getElementById('time').innerHTML =
      h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
+    let t = setTimeout(startTime, 500);
 }
 
 function checkTime(i) {

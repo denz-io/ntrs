@@ -9,9 +9,15 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item custom-nav-link">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-home fa-lg"></i>
+                            Home 
+                        </a>
+                    </li>
+                    <li class="nav-item custom-nav-link">
                         <a class="nav-link" href="/registration">
                             <i class="fa fa-user-plus fa-lg"></i>
-                            Registration 
+                            Operator Registration 
                         </a>
                     </li>
                     <li class="nav-item custom-nav-link">
@@ -30,6 +36,12 @@
                         <a class="nav-link" href="/route">
                             <i class="fa fa-road fa-lg"></i>
                             Routes 
+                        </a>
+                    </li>
+                    <li class="nav-item custom-nav-link">
+                        <a class="nav-link" href="/sms">
+                            <i class="fa fa-envelope fa-lg"></i>
+                            SMS 
                         </a>
                     </li>
                 </ul>

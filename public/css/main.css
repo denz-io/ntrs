@@ -7,9 +7,15 @@ body{
     font-weight: 300;
 }
 
-.profile {
-    width: 240px;
+.act_profile {
+    width: 200px;
     height: 200px;
+}
+
+.profile {
+    width: 400px;
+    height: 400px;
+    padding-bottom: 20px;
 }
 
 .message { 
@@ -115,4 +121,3 @@ body{
 .login-form-padding {
     padding-bottom: 20px;
 }
-

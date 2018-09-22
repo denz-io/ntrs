@@ -11,7 +11,11 @@ class Operator extends Controller
 {
     public function show($id)
     {
-        return view('view-operator', ['drivers' => Driver::where('operator_id', $id)->get(), 'operator' => Oper::find($id), 'assoc' => Association::all()]);
+        if ($operator = Oper::find($id)) {
+            return view('view-operator', ['drivers' => Driver::where('operator_id', $id)->get(), 'operator' => $operator, 'assoc' => Association::all()]);
+        }
+        Alert::warning('Error!','The operators data is no longer available.');
+        return redirect()->back();
     }
 
     public function destroy($id)

@@ -8,6 +8,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class Routes extends Controller
 {
+    public function index() 
+    {
+        return view('routes', ['routes' => Route::all()]);
+    }
+
     public function store(Request $request)
     {
         Route::create($request->all());

@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-12" style="margin: auto; text-align:center;">
-                                            <img src="{{ asset('storage/' . $operator->profile ) }}" class="profile">
+                                            <img src="{{ asset('storage/' . $operator->profile ) }}" class="act_profile">
                                         </div>
                                     </div>
                                 </div>
