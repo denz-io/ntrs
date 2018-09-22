@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-    Associatons 
+    Drivers 
 @endsection
 @section('css')
 @endsection
@@ -11,11 +11,14 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-motorcycle fa-lg"></i> Drivers 
+                   <button  onClick="printItems('driver')" class="btn btn-success to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                 <div class="card-body">
 		    <table id="assoc-table" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
+                                <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
 				<th>Type</th>
 				<th>Name</th>
 				<th>Address</th>
@@ -26,6 +29,7 @@
 			</thead>
 			    @foreach($drivers as $driver)
                                 <tr>
+                                    <td style="text-align: center;"><input data-id="{{$driver->id}}" id="check_{{$driver->id}}" class="to_check" onChange="setItems({{$driver->id}})" type="checkbox" autocomplete="off"></td>
                                     <td>{{$driver->type}}</td>
                                     <td>{{$driver->name}}</td>
                                     <td>{{$driver->address}}</td>

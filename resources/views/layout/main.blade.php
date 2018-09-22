@@ -74,6 +74,7 @@
 	<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 	<script src="{{ asset('js/table.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/print.js') }}"></script>
 	<script src="{{ asset('js/sweetalert2.all.js')}}"></script>
 	@include('sweetalert::alert')
 	@if($errors->first('success'))

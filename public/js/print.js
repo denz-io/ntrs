@@ -21,7 +21,7 @@ function removeItem(id)
 function printItems(type)
 {
     if( $('#print_all').prop('checked') ) {
-        confirm('Print all Operators?') ? printAllItems(type) : null;
+        confirm(`Print all ${type}s?`) ? printAllItems(type) : null;
     } else {
         if (toPrint.length > 0) {
             $.ajaxSetup({
@@ -31,7 +31,8 @@ function printItems(type)
             });
             $.post("/print", { 'type': type, 'toprint': toPrint }).done((success) => {
                 localStorage.setItem("printitems", JSON.stringify(success));
-                window.open('/print', '_blank');
+                window.open('/print/'+ type, '_blank');
+                toPrint = []
             }).fail((error) => { console.log(error) });
         } else {
             sweetAlert("Nothing to print","Please select items to print.","info");
@@ -48,7 +49,20 @@ function printAllItems(type)
     });
     $.post("/print-all", { 'type': type }).done((success) => {
         localStorage.setItem("printitems", JSON.stringify(success));
-        window.open('/print', '_blank');
+        window.open('/print/'+ type, '_blank');
+    }).fail((error) => { console.log(error) });
+}
+
+function printSingleItem(type, id)
+{
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("#csrf_token").val()
+        }
+    });
+    $.post("/print-single", { 'type': type , 'id' : id}).done((success) => {
+        localStorage.setItem("printitems", JSON.stringify([success]));
+        window.open('/print/'+ type, '_blank');
     }).fail((error) => { console.log(error) });
 }
 

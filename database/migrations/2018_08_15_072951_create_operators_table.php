@@ -25,6 +25,7 @@ class CreateOperatorsTable extends Migration
             $table->integer('units')->nullable();
             $table->string('or_number');
             $table->string('amount_paid')->nullable();
+            $table->string('sticker_number')->nullable();
             $table->string('contact');
             $table->timestamps();
         });

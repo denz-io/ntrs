@@ -27,3 +27,10 @@ function deleteRoute(id) {
         window.location = '/route/delete/' + id;
     }
 }
+
+$("#update-route-modal").on('shown.bs.modal', function(event){
+  $(this).find('#id').val($(event.relatedTarget).data('id'))
+  $(this).find('#route').val($(event.relatedTarget).data('route'))
+  $(this).find('#rate').val($(event.relatedTarget).data('rate'))
+  $(this).find('#rate_discounted').val($(event.relatedTarget).data('rate_discounted'))
+});

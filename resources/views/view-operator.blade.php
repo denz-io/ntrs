@@ -10,10 +10,11 @@
         <div class="col-md-12">
             <div class="card" style="margin-bottom: 31px;">
                <div class="card-header">
-                   <i class="fa fa-info-circle fa-lg"> Operator for {{$operator->type}}</i> 
+                   <i class="fa fa-info-circle fa-lg"> {{$operator->type}} Operator </i> 
                    <button  onClick="deleteOperator({{$operator->id}})" class="btn btn-danger to-right"><i class="fa fa-trash fa-lg"></i> Delete</button> 
                    <button onClick="updateOperator()" type="submit" class="btn btn-primary to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
-                   <button  onClick="printForm()" class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <button  onClick="printSingleItem('operator', {{$operator->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                <form  id="form-operator" action="/operator" method="POST">
                     {{ csrf_field() }}
@@ -75,18 +76,18 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="row">
-                                        <div  class="col-md-3">
+                                        <div  class="col-md-2">
                                             <label for="name">Body Number:</label>
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-10">
                                             <input  value="{{$operator->body_number}}" type="text" class="form-control form-custom" name="body_number" placeholder="Body Number" required>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-3">
@@ -137,6 +138,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if($operator->sticker_number)
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div  class="col-md-3">
+                                                <label for="name">Sticker Number:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input  value="{{$operator->sticker_number}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -148,11 +161,15 @@
                    <button data-toggle="modal" data-target="#driver-modal" class="btn btn-primary to-right">
                        <i class="fa fa-plus fa-lg"></i> Register New Driver 
                    </button>
+                   <button  onClick="printItems('driver')" class="btn btn-success to-right" style="margin-right: 10px">
+                        <i class="fa fa-print fa-lg"></i> Print
+                   </button> 
                </div>
                 <div class="card-body">
 		    <table id="specific-driver" class="display" style="width:100%">
 			<thead>
 			    <tr>
+                                <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
 				<th>Driver</th>
 				<th>Address</th>
 				<th>Contact</th>
@@ -164,6 +181,7 @@
 			</thead>
 			    @foreach($drivers as $driver)
                                 <tr>
+                                    <td style="text-align: center;"><input data-id="{{$driver->id}}" id="check_{{$driver->id}}" class="to_check" onChange="setItems({{$driver->id}})" type="checkbox" autocomplete="off"></td>
                                     <td>{{$driver->name}}</td>
                                     <td>{{$driver->address}}</td>
                                     <td>{{$driver->contact}}</td>

@@ -7,14 +7,32 @@ use App\Models\{Operator, Association, Driver, Route};
 
 class Printing extends Controller
 {
-    public function index()
+    public function show($type)
     {
-        return view('print');
+        return view('print-'.$type);
     }
 
     public function store(Request $request)
     {
         return $this->getData($request);
+    }
+
+    public function printSingle(Request $request)
+    {
+        switch($request->type) {
+            case 'operator':    
+                return Operator::find($request->id);
+                break;
+            case 'association':     
+                return Association::find($request->id);
+                break;
+            case 'driver':     
+                return Driver::find($request->id);
+                break;
+            case 'route':     
+                return Route::find($request->id);
+                break;
+        }
     }
 
     public function printAll(Request $request)

@@ -25,13 +25,14 @@ $(document).ready(function () {
                                 </div>
                             </div>
                             <div class="form-group-profile">
+                                <h3>Operators Information:</h3>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <img class="act_profile" src="${image_url}/storage/${data.profile}">
                                     </div>
                                     <div class="col-md-9">
                                         <div class="info-user">
-                                            <b>Operator:</b> 
+                                            <b>Name:</b> 
                                             <div style="text-align: center">
                                                 ${data.operator}
                                             </div>
@@ -88,6 +89,12 @@ $(document).ready(function () {
                                             <b>Amount Paid:</b> 
                                             <div style="text-align: center">
                                                 ${data.amount_paid}
+                                            </div>
+                                        </div>
+                                        <div class="info-user">
+                                            <b>Sticker Number:</b> 
+                                            <div style="text-align: center">
+                                                ${data.sticker_number ? data.sticker_number : 'none'}
                                             </div>
                                         </div>
                                     </div>

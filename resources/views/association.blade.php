@@ -11,12 +11,21 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-users fa-lg"></i> Associations 
-                   <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right"><i class="fa fa-plus fa-lg"></i> Add new Association</button>
+                   <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right">
+                       <i class="fa fa-plus fa-lg"></i> 
+                       Add new Association
+                   </button>
+                   <button  onClick="printItems('association')" class="btn btn-success to-right" style="margin-right: 10px;">
+                       <i class="fa fa-print fa-lg"></i> 
+                       Print
+                   </button> 
+                   <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                 <div class="card-body">
 		    <table id="assoc-table" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
+                                <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
 				<th>Association</th>
 				<th>Association Head</th>
 				<th>Type</th>
@@ -25,6 +34,7 @@
 			</thead>
 			    @foreach($associations as $association)
                                 <tr>
+                                    <td style="text-align: center;"><input data-id="{{$association->id}}" id="check_{{$association->id}}" class="to_check" onChange="setItems({{$association->id}})" type="checkbox" autocomplete="off"></td>
                                     <td>{{$association->name_short}}</td>
                                     <td>{{$association->head}}</td>
                                     <td>{{$association->type}}</td>

@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-    Associatons 
+    Routes 
 @endsection
 @section('css')
 @endsection
@@ -11,11 +11,14 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-road fa-lg"></i> Routes
+                   <button  onClick="printItems('route')" class="btn btn-success to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                 <div class="card-body">
 		    <table id="route-table" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
+                                <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
 				<th>Description</th>
 				<th>Rate</th>
 				<th>Rate w/ Discount</th>
@@ -24,6 +27,7 @@
 			</thead>
 			    @foreach($routes as $route)
                                 <tr>
+                                    <td style="text-align: center;"><input data-id="{{$route->id}}" id="check_{{$route->id}}" class="to_check" onChange="setItems({{$route->id}})" type="checkbox" autocomplete="off"></td>
                                     <td>{{$route->route}}</td>
                                     <td>{{$route->rate}}</td>
                                     <td>{{$route->rate_discounted}}</td>

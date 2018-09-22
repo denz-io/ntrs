@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                    <i class="fa fa-address-card fa-lg"> Operators</i> 
-                   <button  onClick="printItems('operator')" class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <button  onClick="printItems('operator')" class="btn btn-success to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                 </div>
                 <div class="card-body">
@@ -48,5 +48,4 @@
 @endsection
 @section('js')
     <script src="{{ asset('js/home.js') }}"></script>
-    <script src="{{ asset('js/print.js') }}"></script>
 @endsection

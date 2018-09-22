@@ -20,6 +20,13 @@ class Routes extends Controller
         return redirect()->back();
     }
 
+    public function update(Request $request)
+    {
+        Route::find($request->id)->update($request->all());
+        Alert::success('Success!', 'Route has been updated.');
+        return redirect()->back();
+    }
+
     public function destroy($id)
     {
         Route::find($id)->delete();

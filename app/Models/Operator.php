@@ -18,5 +18,6 @@ class Operator extends Model
         'or_number',     
         'amount_paid',     
         'contact',     
+        'sticker_number',     
     ];
 }

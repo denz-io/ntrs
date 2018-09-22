@@ -30,10 +30,12 @@ Route::group(['middleware' => 'user'], function() {
     Route::resource('/driver', 'Driver');
     Route::get('/driver-delete/{id}', 'Driver@destroy');
     Route::resource('/route', 'Routes');
+    Route::post('/route/update', 'Routes@update');
     Route::get('/route/delete/{id}', 'Routes@destroy');
     Route::resource('/sms', 'SMS');
     Route::resource('/print', 'Printing');
     Route::post('/print-all', 'Printing@printAll');
+    Route::post('/print-single', 'Printing@printSingle');
     Route::resource('/autosuggest','AutoSuggestion');
     Route::get('/logout', function() {
         Auth::logout();

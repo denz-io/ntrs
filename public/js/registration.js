@@ -1,6 +1,7 @@
 $(document).ready(function() {
    $('#drop-sikad').prop('disabled', false).show(); 
    $('#drop-tricycle').prop('disabled', true).hide(); 
+   $('#sticker_number').prop('disabled', true).hide(); 
    setTimeout(()=> {
        getSuggestedAssociation($('#register-type').val());
    }, 2000);
@@ -16,6 +17,7 @@ $('#register-type').on('change', function() {
     if ($(self).val() == 'Tricycle') {
        $('#drop-tricycle').prop('disabled', false).show(); 
        $('#drop-sikad').prop('disabled', true).hide(); 
+       $('#sticker_number').prop('disabled', false).show(); 
     }
     getSuggestedAssociation($(self).val());
 });

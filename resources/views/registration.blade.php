@@ -79,6 +79,9 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
                                 </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Sticker Number" required>
+                                </div>
                                 <div class="to-center">
                                     <button type="submit" id="register-submit" class="btn btn-primary custom-button"><i class="fa fa-floppy-o fa-lg"></i> Register</button>
                                 </div>
