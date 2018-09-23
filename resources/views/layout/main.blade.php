@@ -45,11 +45,13 @@
 
 
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-				    <a class="dropdown-item" href="/settings">
-					<i class="fa fa-lg fa-plus"></i> Create Account
-					
-				    </a>
-				    <a class="dropdown-item" href="/settings">
+				    @if(Auth::user()->is_admin)
+                                        <a class="dropdown-item" href="/manage-users">
+                                            <i class="fa fa-lg fa-plus"></i> Create Account
+                                            
+                                        </a>
+				    @endif
+				    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settings-modal">
 					<i class="fa fa-lg fa-cogs"></i> Settings
 					
 				    </a>
@@ -63,6 +65,7 @@
 		    </div>
 		</div>
 	    </nav>
+            @include('modals.settings')
 	@endif
         <main class="py-4">
             <div class="container">

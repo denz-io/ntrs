@@ -20,6 +20,7 @@ class User extends Authenticatable
         'lname', 
         'username',
         'is_admin',
+        'password',
     ];
 
     /**
