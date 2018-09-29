@@ -56,12 +56,6 @@ $(document).ready(function () {
                                             </div>
                                         </div>
                                         <div class="info-user">
-                                            <b>Control Number:</b> 
-                                            <div style="text-align: center">
-                                                ${data.control_number}
-                                            </div>
-                                        </div>
-                                        <div class="info-user">
                                             <b>OR Number:</b> 
                                             <div style="text-align: center">
                                                 ${data.or_number}

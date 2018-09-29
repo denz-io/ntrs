@@ -8,7 +8,6 @@ class Operator extends Model
 {
     protected $fillable = [
         'association',     
-        'control_number',     
         'operator',     
         'profile',     
         'address',     

@@ -11,10 +11,12 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-users fa-lg"></i> Associations 
-                   <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right">
-                       <i class="fa fa-plus fa-lg"></i> 
-                       Add new Association
-                   </button>
+                   @if(Auth::user()->is_admin)
+                       <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right">
+                           <i class="fa fa-plus fa-lg"></i> 
+                           Add new Association
+                       </button>
+                   @endif
                    <button  onClick="printItems('association')" class="btn btn-success to-right" style="margin-right: 10px;">
                        <i class="fa fa-print fa-lg"></i> 
                        Print
@@ -40,7 +42,9 @@
                                     <td>{{$association->type}}</td>
                                     <td>
                                         <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
-                                        <button onClick="deleteAssoc({{$association->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
+                                        @if(Auth::user()->is_admin)
+                                            <button onClick="deleteAssoc({{$association->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
+                                        @endif
                                         </td>
                                 </tr>
                             @endforeach

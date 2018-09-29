@@ -38,12 +38,14 @@
                             Routes 
                         </a>
                     </li>
-                    <li class="nav-item custom-nav-link">
-                        <a class="nav-link" href="/sms">
-                            <i class="fa fa-envelope fa-lg"></i>
-                            SMS 
-                        </a>
-                    </li>
+                    @if(Auth::user()->is_admin)
+                        <li class="nav-item custom-nav-link">
+                            <a class="nav-link" href="/sms">
+                                <i class="fa fa-envelope fa-lg"></i>
+                                SMS 
+                            </a>
+                        </li>
+                    @endif
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">

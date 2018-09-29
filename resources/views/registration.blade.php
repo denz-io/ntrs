@@ -59,28 +59,31 @@
                                     <input type="text" class="form-control form-custom" name="operator" placeholder="(family,given,middle name)" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="address" placeholder="Address" required>
+                                    <select name="address" class="form-control form-custom-select">
+                                        @foreach ($brgy as $item )
+                                            <option>{{$item}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="body_number" placeholder="Body Number" required>
+                                    <input type="number" min="1" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
+                                    <div id="bodynumber">
+                                    </div>
+                                    <input type="hidden" class="form-control form-custom" id="body_number" name="body_number" placeholder="Body Number" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="control_number" placeholder="Control Number" required>
+                                    <input type="text" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Sticker Number" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Sticker Number" required>
                                 </div>
                                 <div class="to-center">
                                     <button type="submit" id="register-submit" class="btn btn-primary custom-button"><i class="fa fa-floppy-o fa-lg"></i> Register</button>

@@ -17,7 +17,6 @@ class CreateOperatorsTable extends Migration
             $table->increments('id');
             $table->string('association');
             $table->string('type');
-            $table->string('control_number');
             $table->string('operator');
             $table->string('profile');
             $table->string('address');
@@ -25,7 +24,7 @@ class CreateOperatorsTable extends Migration
             $table->integer('units')->nullable();
             $table->string('or_number');
             $table->string('amount_paid')->nullable();
-            $table->string('sticker_number')->nullable();
+            $table->string('sticker_number');
             $table->string('contact');
             $table->timestamps();
         });

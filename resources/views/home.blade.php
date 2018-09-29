@@ -35,7 +35,9 @@
                                     <td>{{$operator->association}}</td>
                                     <td>
                                         <a href="{{'/operator/' . $operator->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
-                                       <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-danger"><i class="fa fa-trash fa-lg"></i> Delete</a> 
+                                        @if(Auth::user()->is_admin)
+                                            <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-danger"><i class="fa fa-trash fa-lg"></i> Delete</a> 
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

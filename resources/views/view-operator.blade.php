@@ -11,8 +11,10 @@
             <div class="card" style="margin-bottom: 31px;">
                <div class="card-header">
                    <i class="fa fa-info-circle fa-lg"> {{$operator->type}} Operator </i> 
-                   <button  onClick="deleteOperator({{$operator->id}})" class="btn btn-danger to-right"><i class="fa fa-trash fa-lg"></i> Delete</button> 
-                   <button onClick="updateOperator()" type="submit" class="btn btn-primary to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
+                   @if(Auth::user()->is_admin)
+                       <button  onClick="deleteOperator({{$operator->id}})" class="btn btn-danger to-right"><i class="fa fa-trash fa-lg"></i> Delete</button> 
+                       <button onClick="updateOperator()" type="submit" class="btn btn-primary to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
+                   @endif
                    <button  onClick="printSingleItem('operator', {{$operator->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
@@ -111,16 +113,6 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-3">
-                                            <label for="name">Control Number:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input  value="{{$operator->control_number}}" type="text" class="form-control form-custom" name="control_number" placeholder="Control Number" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
                                             <label for="name">Amount paid:</label>
                                         </div>
                                         <div class="col-md-9">
@@ -158,9 +150,11 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-motorcycle fa-lg"></i> Drivers 
-                   <button data-toggle="modal" data-target="#driver-modal" class="btn btn-primary to-right">
-                       <i class="fa fa-plus fa-lg"></i> Register New Driver 
-                   </button>
+                   @if(Auth::user()->is_admin)
+                       <button data-toggle="modal" data-target="#driver-modal" class="btn btn-primary to-right">
+                           <i class="fa fa-plus fa-lg"></i> Register New Driver 
+                       </button>
+                   @endif
                    <button  onClick="printItems('driver')" class="btn btn-success to-right" style="margin-right: 10px">
                         <i class="fa fa-print fa-lg"></i> Print
                    </button> 
@@ -173,10 +167,10 @@
 				<th>Driver</th>
 				<th>Address</th>
 				<th>Contact</th>
-			        @if($operator->type == 'Tricycle')
-                                    <th>Sticker No.</th>
+                                <th>Sticker No.</th>
+                                @if(Auth::user()->is_admin)
+                                    <th>Option</th>
                                 @endif
-				<th>Option</th>
 			    </tr>
 			</thead>
 			    @foreach($drivers as $driver)
@@ -185,13 +179,13 @@
                                     <td>{{$driver->name}}</td>
                                     <td>{{$driver->address}}</td>
                                     <td>{{$driver->contact}}</td>
-                                    @if($operator->type == 'Tricycle')
-                                        <td>{{$driver->sticker_number}}</td>
-                                    @endif
+                                    <td>{{$driver->sticker_number}}</td>
+                                    @if(Auth::user()->is_admin)
                                     <td>
                                         <button data-id="{{$driver->id}}" data-sticker_number="{{$driver->sticker_number}}" data-contact="{{$driver->contact}}" data-address="{{$driver->address}}" data-name="{{$driver->name}}" data-toggle="modal" data-target="#update-driver-modal" class="btn btn-primary custom-button-table"><i class="fa fa-pencil-square-o"></i> Update</button>
                                         <button onClick="deleteDriver({{ $driver->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
 			<tbody>

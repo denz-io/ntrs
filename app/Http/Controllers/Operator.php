@@ -12,7 +12,12 @@ class Operator extends Controller
     public function show($id)
     {
         if ($operator = Oper::find($id)) {
-            return view('view-operator', ['drivers' => Driver::where('operator_id', $id)->get(), 'operator' => $operator, 'assoc' => Association::all()]);
+            return view('view-operator', [
+                'drivers' => Driver::where('operator_id', $id)->get(), 
+                'operator' => $operator, 
+                'assoc' => Association::all(),
+                'body_numbers' => explode(",",$operator->body_number)
+            ]);
         }
         Alert::warning('Error!','The operators data is no longer available.');
         return redirect()->back();
@@ -41,7 +46,6 @@ class Operator extends Controller
             'body_number'    => 'required',     
             'units'          => 'required|integer|max:1000',     
             'or_number'      => 'required',     
-            'control_number' => 'required',     
             'amount_paid'    => 'required|regex:/^\d*(\.\d{1,2})?$/',     
             'contact'        => 'required',     
         ]);

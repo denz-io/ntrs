@@ -20,11 +20,13 @@
             <div class="form-group">
                 <input type="text" class="form-control form-custom" name="address" placeholder="Address" required>
             </div>
-            @if($operator->type == 'Tricycle')
-                <div class="form-group">
-                    <input type="text" class="form-control form-custom" name="sticker_number" placeholder="Sticker Number" required>
-                </div>
-            @endif
+            <div class="form-group">
+                <select name="sticker_number" class="form-control form-custom-select">
+                    @foreach ($body_numbers as $body_number )
+                        <option>{{$body_number}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <input type="text" class="form-control form-custom" name="contact" placeholder="Contact" required>
             </div>

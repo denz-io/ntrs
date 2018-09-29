@@ -43,4 +43,8 @@
     .print-break {
         page-break-after: always;
     }
+
+    img {
+            -webkit-print-color-adjust: exact;
+    }
 }

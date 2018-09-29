@@ -11,7 +11,8 @@ class Registration extends Controller
 {
     public function index() 
     {
-        return view('registration', [ 'assoc' => Association::all()]);
+	$brgy = json_decode(file_get_contents(public_path() . "/json/brgy.json"), true); 
+        return view('registration', [ 'assoc' => Association::all(), 'brgy' => $brgy]);
     }
 
     public function store(Request $request) 
@@ -33,7 +34,7 @@ class Registration extends Controller
             'body_number'    => 'required',     
             'units'          => 'required|integer|max:1000',     
             'or_number'      => 'required',     
-            'control_number' => 'required',     
+            'sticker_number' => 'required',     
             'amount_paid'    => 'required|regex:/^\d*(\.\d{1,2})?$/',     
             'contact'        => 'required',     
         ]);

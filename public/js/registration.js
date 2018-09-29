@@ -1,7 +1,8 @@
+var body_numbers = [];
+
 $(document).ready(function() {
    $('#drop-sikad').prop('disabled', false).show(); 
    $('#drop-tricycle').prop('disabled', true).hide(); 
-   $('#sticker_number').prop('disabled', true).hide(); 
    setTimeout(()=> {
        getSuggestedAssociation($('#register-type').val());
    }, 2000);
@@ -17,7 +18,6 @@ $('#register-type').on('change', function() {
     if ($(self).val() == 'Tricycle') {
        $('#drop-tricycle').prop('disabled', false).show(); 
        $('#drop-sikad').prop('disabled', true).hide(); 
-       $('#sticker_number').prop('disabled', false).show(); 
     }
     getSuggestedAssociation($(self).val());
 });
@@ -62,3 +62,30 @@ function drawCanvas(e) {
   $('#profile').val(document.getElementById('image_canvas').toDataURL());
 };
 
+$('#units').on('change keyup', function() {
+    $("#bodynumber").empty();
+    $('#body_number').val('');
+    body_numbers = [];
+    if ($('#units').val() > 0) {
+        $("#bodynumber").append(`
+            <div class="bnumber-title">
+                <label>Body Number:</label>
+            </div>
+        `);    
+        for (let i = 0; i < $('#units').val(); i++) {
+            $("#bodynumber").append(`
+                <input type="text" class="form-custom bnumber" id="bi_${i}" placeholder="Body #" required>
+            `);    
+        }
+    }
+});
+
+$("body").on("keyup", ".bnumber", function(){
+    body_numbers = [];
+    $('.bnumber').each((index) => {
+        if ($('#bi_'+index).val()) {
+            body_numbers.push($('#bi_'+index).val());
+        }
+    });
+    $('#body_number').val(body_numbers.toString());
+});
