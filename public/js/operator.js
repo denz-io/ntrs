@@ -30,3 +30,22 @@ $("#update-driver-modal").on('shown.bs.modal', function(event){
   $(this).find('#sticker_number').val($(event.relatedTarget).data('sticker_number'))
 });
 
+
+$('#act_profile').click(() => {
+    $('#profile').trigger('click');
+});
+
+$('#profile').on('change', function(event) {
+  console.log('this is being called');
+  var selectedFile = event.target.files[0];
+  var reader = new FileReader();
+
+  var imgtag = document.getElementById("act_profile");
+  imgtag.title = selectedFile.name;
+
+  reader.onload = function(event) {
+    imgtag.src = event.target.result;
+  };
+
+  reader.readAsDataURL(selectedFile);
+});

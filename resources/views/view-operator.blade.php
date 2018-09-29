@@ -18,7 +18,7 @@
                    <button  onClick="printSingleItem('operator', {{$operator->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
-               <form  id="form-operator" action="/operator" method="POST">
+               <form  id="form-operator" action="/operator" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="card-body">
                         <div class="row">
@@ -26,7 +26,8 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-12" style="margin: auto; text-align:center;">
-                                            <img src="{{ asset('storage/' . $operator->profile ) }}" class="act_profile">
+                                            <img src="{{ asset('storage/' . $operator->profile ) }}" id="act_profile" class="act_profile">
+                                            <input id="profile" type="file" name="profile"  style="display:none;">
                                         </div>
                                     </div>
                                 </div>
