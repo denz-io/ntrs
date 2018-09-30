@@ -8,10 +8,10 @@
           </button>
       </div>
       <div class="modal-body">
-        <form action="/manage-users/update" method="POST">
+        <form action="/settings" method="POST">
             {{ csrf_field() }}
             <div class="form-group">
-                <input type="hidden" id="id" name="id" required>
+                <input type="hidden" id="id" name="id" value="{{Auth::user()->id}}" required>
                 <input type="text" class="form-control form-custom" value="{{Auth::user()->fname}}" name="fname" placeholder="First Name" required>
             </div>
             <div class="form-group">

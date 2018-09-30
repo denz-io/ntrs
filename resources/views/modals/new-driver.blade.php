@@ -18,7 +18,11 @@
                 <input type="text" class="form-control form-custom" name="name" placeholder="Name" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-custom" name="address" placeholder="Address" required>
+                <select  name="address" class="form-control form-custom-select">
+                    @foreach ($brgy as $item )
+                        <option {{$operator->address == $item ? 'selected' : ''}}>{{$item}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <select name="sticker_number" class="form-control form-custom-select">

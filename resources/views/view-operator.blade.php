@@ -24,10 +24,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-12" style="margin: auto; text-align:center;">
+                                    <div class="row" style="margin: auto; text-align:center;">
+                                        <div  class="col-md-12" >
+                                            <label>(Click to update profile)</label>
+                                        </div>
+                                        <div  class="col-md-12" >
                                             <img src="{{ asset('storage/' . $operator->profile ) }}" id="act_profile" class="act_profile">
-                                            <input id="profile" type="file" name="profile"  style="display:none;">
+                                            <input id="profile" type="file" name="profile" accept="image/*" style="display:none;">
                                         </div>
                                     </div>
                                 </div>
@@ -74,33 +77,17 @@
                                         <div  class="col-md-2">
                                             <label for="name">Address:</label>
                                         </div>
-                                        <div class="col-md-10">
-                                            <input  value="{{$operator->address}}" type="text" class="form-control form-custom" name="address" placeholder="Address" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-2">
-                                            <label for="name">Body Number:</label>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <input  value="{{$operator->body_number}}" type="text" class="form-control form-custom" name="body_number" placeholder="Body Number" required>
+                                        <div class="col-md-9">
+                                            <select  name="address" class="form-control form-custom-select">
+                                                @foreach ($brgy as $item )
+                                                    <option {{$operator->address == $item ? 'selected' : ''}}>{{$item}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
-                                            <label for="name">Units:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input  value="{{$operator->units}}" type="text" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-3">
@@ -131,18 +118,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if($operator->sticker_number)
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div  class="col-md-3">
-                                                <label for="name">Sticker Number:</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <input  value="{{$operator->sticker_number}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div  class="col-md-3">
+                                            <label for="name">Sticker Number:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input  value="{{$operator->sticker_number}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div  class="col-md-3">
+                                            <label for="name">Units:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input  value="{{$operator->units}}" type="text" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
+                                            <div style="text-align: center;">
+                                                <label>(Units must match body number count.)</label>
                                             </div>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div  class="col-md-3">
+                                            <label for="name">Body Number:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <textarea rows="3" cols="10" type="text" class="form-control form-custom" name="body_number" placeholder="Body Number" required>
+                                                {{$operator->body_number}} 
+                                            </textarea>
+                                            <div style="text-align: center;">
+                                                <label>(To add more Body#, values must be separted by commas)</label>
+                                                <label>Ex: 133123,233123,21323</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

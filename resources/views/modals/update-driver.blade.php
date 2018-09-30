@@ -18,13 +18,19 @@
                 <input type="text" class="form-control form-custom" id="name" name="name" placeholder="Name" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-custom" id="address" name="address" placeholder="Address" required>
+                <select id="address" name="address" class="form-control form-custom-select">
+                    @foreach ($brgy as $item )
+                        <option {{$operator->address == $item ? 'selected' : ''}}>{{$item}}</option>
+                    @endforeach
+                </select>
             </div>
-            @if($operator->type == 'Tricycle')
-                <div class="form-group">
-                    <input type="text" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Sticker Number" required>
-                </div>
-            @endif
+            <div class="form-group">
+                <select name="sticker_number" class="form-control form-custom-select">
+                    @foreach ($body_numbers as $body_number )
+                        <option>{{$body_number}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <input type="text" class="form-control form-custom" id="contact" name="contact" placeholder="Contact" required>
             </div>

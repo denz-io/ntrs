@@ -29,6 +29,13 @@ class ManageUsers extends Controller
         return redirect()->back();
     }
 
+    public function settingsUpdate(Request $request)
+    {
+        User::find($request->id)->update($request->all());
+        Alert::success('Success!', 'Your info has been updated.');
+        return redirect()->back();
+    }
+
     public function destroy($id)
     {
         User::find($id)->delete();

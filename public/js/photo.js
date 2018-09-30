@@ -16,7 +16,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 document.getElementById("snap").addEventListener("click", function() {
     context.drawImage(video, 0, 0, 300, 240);
-    stream.stop();
+    if (stream) {
+         stream.getTracks().forEach(function (track) { track.stop(); });
+    }
     $('#canvas').removeClass('hidden').addClass('shown');
     $('#video').removeClass('shown').addClass('hidden');
     $(this).addClass('hidden');

@@ -17,19 +17,15 @@
                 <div class="card-body">
 		    <div class="row justify-content-center">
 		        <div class="col-md-10 login-form-padding">
-                            <form method="POST" action="/registration">
+                            <form id="reg-form" method="POST" action="/registration" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <div class="row justify-content-center">
                                         <div class="col-md-12" style="text-align:center;">
-                                            <img style="display: none;" id="user_image" src="{{asset('images/profile_default.jpg')}}">
+                                            <img class="profile" id="user_image" src="{{asset('images/profile_default.jpg')}}">
 
-                                            <canvas class="profile" id="image_canvas">
-                                            </canvas>
-
-                                            <input type="hidden" id="profile" name="profile" required>
-                                            <input style="display: none;" type="file" id="profile_input" >
-                                            <button type="button" class="btn btn-success custom-button" id="snap"><i class="fa fa-camera fa-lg"></i></button>
+                                            <input style="display: none;" accept="image/*" type="file" name="profile" id="profile_input" required>
+                                            <button type="button" class="btn btn-success custom-button" id="snap"><i class="fa fa-upload fa-lg"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +82,9 @@
                                     <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
                                 </div>
                                 <div class="to-center">
-                                    <button type="submit" id="register-submit" class="btn btn-primary custom-button"><i class="fa fa-floppy-o fa-lg"></i> Register</button>
+                                    <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-primary custom-button" disabled>
+                                        <i class="fa fa-floppy-o fa-lg"></i> Register
+                                    </button>
                                 </div>
                             </form> 
                         </div>	

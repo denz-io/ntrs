@@ -1,12 +1,13 @@
 var body_numbers = [];
 
 $(document).ready(function() {
+   $('#register-submit').tooltip();  
    $('#drop-sikad').prop('disabled', false).show(); 
    $('#drop-tricycle').prop('disabled', true).hide(); 
+   $('#register-submit').prop('disabled',true);
    setTimeout(()=> {
        getSuggestedAssociation($('#register-type').val());
    }, 2000);
-   setTimeout(()=>{drawCanvas()},500);
 });
 
 $('#register-type').on('change', function() {
@@ -50,17 +51,9 @@ $('#profile_input').on('change', function(event) {
   };
 
   reader.readAsDataURL(selectedFile);
-  setTimeout(()=>{drawCanvas()},500);
+  $('#register-submit').prop('disabled',false);
+  $('register-submit *[title]').tooltip('disable')
 });
-
-
-function drawCanvas(e) {
-  var c=document.getElementById("image_canvas");
-  var ctx=c.getContext("2d");
-  var img=document.getElementById("user_image");
-  ctx.drawImage(img,0,0,300,150);
-  $('#profile').val(document.getElementById('image_canvas').toDataURL());
-};
 
 $('#units').on('change keyup', function() {
     $("#bodynumber").empty();
@@ -88,4 +81,8 @@ $("body").on("keyup", ".bnumber", function(){
         }
     });
     $('#body_number').val(body_numbers.toString());
+});
+
+$('#register-submit').click(() => {
+    console.log($('#profile_input').val());
 });

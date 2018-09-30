@@ -101,7 +101,10 @@ $(document).ready(function () {
             <div class="print-break"></div>
         `);
     });
-    window.print();
+
+    setTimeout(() => {
+        window.print();
+    }, 1000); 
 })
 
 function getDate()

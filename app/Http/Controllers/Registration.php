@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{ Operator, Association };
-use App\Helpers\PhotoConverter as Photo;
+use App\Helpers\Photo;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class Registration extends Controller
@@ -20,7 +20,7 @@ class Registration extends Controller
         $this->validateRequest($request); 
         $photo =  new Photo;
         $request_array = $request->toArray();
-        $request_array['profile'] = $photo->convert($request->profile); 
+        $request_array['profile'] = $photo->upload($request->file('profile')); 
         $operator = Operator::create($request_array);
         return redirect('/operator/' . $operator->id)->withErrors(['success'=>'Registration complete!']);
     }
@@ -37,6 +37,7 @@ class Registration extends Controller
             'sticker_number' => 'required',     
             'amount_paid'    => 'required|regex:/^\d*(\.\d{1,2})?$/',     
             'contact'        => 'required',     
+            'profile'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     }
 }

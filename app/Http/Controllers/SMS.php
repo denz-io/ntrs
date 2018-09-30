@@ -20,8 +20,8 @@ class SMS extends Controller
             $this->sendMessage($request->number, $request->message);
             Alert::success('Success','Message has been sent to the number '. $request->number . '.');
         } else {
-            $this->sendToAllOperators($request);
-            Alert::success('Success','Message has been sent to all Operators.');
+            //$this->sendToAllOperators($request);
+            Alert::info('This feature is not available yet.','You must actiavate your Nexmo account.');
         }
 	return back();
     }
@@ -39,7 +39,7 @@ class SMS extends Controller
 	Nexmo::message()->send([
             'to' => $with_country_code,
             'from' => 'NTRS System',
-	    'text' => $message
+	    'text' => '[NTRS System] ' . $message . ' '
 	]);
     }
 		

@@ -8,9 +8,11 @@ body{
 }
 
 .act_profile {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
+    border: solid 1px;
+    border-radius: 50%;
 }
 
 .profile {

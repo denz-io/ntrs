@@ -19,7 +19,7 @@
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
-				<th>Control Number</th>
+				<th>Sticker Number</th>
 				<th>Name</th>
 				<th>Type</th>
 				<th>Association</th>
@@ -29,7 +29,7 @@
 			    @foreach($operators as $operator)
                                 <tr>
                                     <td style="text-align: center;"><input data-id="{{$operator->id}}" id="check_{{$operator->id}}" class="to_check" onChange="setItems({{$operator->id}})" type="checkbox" autocomplete="off"></td>
-                                    <td>{{$operator->control_number}}</td>
+                                    <td>{{$operator->sticker_number}}</td>
                                     <td>{{$operator->operator}}</td>
                                     <td>{{$operator->type}}</td>
                                     <td>{{$operator->association}}</td>

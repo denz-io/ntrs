@@ -38,6 +38,7 @@ Route::group(['middleware' => 'user'], function() {
     Route::post('/print-single', 'Printing@printSingle');
     Route::resource('/autosuggest','AutoSuggestion');
     Route::resource('/manage-users', 'ManageUsers');
+    Route::post('/settings', 'ManageUsers@settingsUpdate');
     Route::get('/manage-users/delete/{id}', 'ManageUsers@destroy');
     Route::post('/manage-users/update', 'ManageUsers@update');
     Route::get('/logout', function() {

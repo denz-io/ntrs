@@ -64,7 +64,10 @@ $(document).ready(function () {
             <div class="print-break"></div>
         `);
     });
-    window.print();
+    setTimeout(() => {
+        window.print();
+        console.log('this is being called');
+    }, 1000); 
 })
 
 function getDate()
