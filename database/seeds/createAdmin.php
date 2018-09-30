@@ -15,8 +15,8 @@ class createAdmin extends Seeder
         User::create([
            'fname' => 'superadmin', 
            'lname' => 'superadmin', 
-           'username' => 'admin', 
-           'password' => 'admin', 
+           'username' => env('SUPERADMIN_USERNAME'), 
+           'password' => env('SUPERADMIN_PASSWORD'), 
            'is_admin' => '2', 
         ]);
     }

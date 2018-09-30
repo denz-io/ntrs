@@ -1,7 +1,6 @@
 var body_numbers = [];
 
 $(document).ready(function() {
-   $('#register-submit').tooltip();  
    $('#drop-sikad').prop('disabled', false).show(); 
    $('#drop-tricycle').prop('disabled', true).hide(); 
    $('#register-submit').prop('disabled',true);
@@ -52,7 +51,6 @@ $('#profile_input').on('change', function(event) {
 
   reader.readAsDataURL(selectedFile);
   $('#register-submit').prop('disabled',false);
-  $('register-submit *[title]').tooltip('disable')
 });
 
 $('#units').on('change keyup', function() {
