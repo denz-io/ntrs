@@ -24,14 +24,15 @@
                                         <div class="col-md-12" style="text-align:center;">
                                             <img class="profile" id="user_image" src="{{asset('images/profile_default.jpg')}}">
 
-                                            <input style="display: none;" accept="image/*" type="file" name="profile" id="profile_input" required>
+                                            <input style="display: none;" accept="image/*" type="file" name="profile" id="profile_input">
                                             <button type="button" class="btn btn-success custom-button" id="snap"><i class="fa fa-upload fa-lg"></i></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <select name="type" class="form-control form-custom-select" id="register-type">
-                                        <option selected>Sikad-sikad</option>
+                                        <option selected>Select vehicle type</option>
+                                        <option>Sikad-sikad</option>
                                         <option>Tricycle</option>
                                     </select>
                                 </div>
@@ -52,7 +53,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="operator" placeholder="(family,given,middle name)" required>
+                                    <input type="text" class="form-control form-custom" name="operator" placeholder="(Last Name,First Name,Middle Name)" required> </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
                                 </div>
                                 <div class="form-group">
                                     <select name="address" class="form-control form-custom-select">
@@ -62,7 +65,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" min="1" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
+                                    <input type="number" min="0" class="form-control form-custom" value="0" id="units" name="units" placeholder="Number of Units" required>
                                 </div>
                                 <div class="form-group">
                                     <div id="bodynumber">
@@ -70,19 +73,18 @@
                                     <input type="hidden" class="form-control form-custom" id="body_number" name="body_number" placeholder="Body Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
+                                    <div id="stickernumber">
+                                    </div>
+                                    <input type="hidden" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Body Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Sticker Number" required>
+                                    <input type="text" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
-                                </div>
                                 <div class="to-center">
-                                    <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-primary custom-button" disabled>
+                                    <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-primary custom-button" >
                                         <i class="fa fa-floppy-o fa-lg"></i> Register
                                     </button>
                                 </div>

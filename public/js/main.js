@@ -10,13 +10,14 @@ function startTime() {
     let mth = today.getMonth() + 1;
     let d = today.getDate();
     let h = today.getHours() > 12 ? today.getHours() - 12 : today.getHours();
+    let amOrpm = today.getHours() > 12 ? 'PM' : 'AM';
     let m = today.getMinutes();
     let s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('date').innerHTML = y + '/' + d + '/' + mth; 
+    document.getElementById('date').innerHTML = mth + '/' + d + '/' + y; 
     document.getElementById('time').innerHTML =
-     h + ":" + m + ":" + s;
+     h + ":" + m + ":" + s + " " + amOrpm;
     let t = setTimeout(startTime, 500);
 }
 

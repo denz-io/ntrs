@@ -8,7 +8,8 @@ class Route extends Model
 {
     protected $fillable = [
        'assoc_id', 
-       'route',
+       'route_start',
+       'route_end',
        'rate',
        'rate_discounted',
     ];

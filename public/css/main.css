@@ -7,6 +7,15 @@ body{
     font-weight: 300;
 }
 
+.home-label{
+    font-size: 200px;
+    padding-top: 70px;
+    text-align: center;
+    background: none;
+    font-family: Monospace;
+    color: white;
+}
+
 .act_profile {
     width: 200px;
     height: 200px;
@@ -66,7 +75,6 @@ body{
 .custom-nav-link:hover {
     border-left: solid 2px #198080;
     border-right: solid 2px #198080;
-    font-size: 20px; 
     background-color: #BFF2F2; 
 }
 
@@ -132,6 +140,13 @@ body{
 .bnumber {
     width: 190px !important; 
     border: none; 
-    background-color: silver;
+    background-color: #FFF675;
+    margin-bottom: 20px;
+}
+
+.snumber {
+    width: 190px !important; 
+    border: none; 
+    background-color: #FF9B02;
     margin-bottom: 20px;
 }

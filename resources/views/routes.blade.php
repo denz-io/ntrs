@@ -19,7 +19,8 @@
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
-				<th>Description</th>
+				<th>Route Start</th>
+				<th>Route End</th>
 				<th>Rate</th>
 				<th>Rate w/ Discount</th>
 				<th>Option</th>
@@ -28,7 +29,8 @@
 			    @foreach($routes as $route)
                                 <tr>
                                     <td style="text-align: center;"><input data-id="{{$route->id}}" id="check_{{$route->id}}" class="to_check" onChange="setItems({{$route->id}})" type="checkbox" autocomplete="off"></td>
-                                    <td>{{$route->route}}</td>
+                                    <td>{{$route->route_start}}</td>
+                                    <td>{{$route->route_end}}</td>
                                     <td>{{$route->rate}}</td>
                                     <td>{{$route->rate_discounted}}</td>
                                     <td>

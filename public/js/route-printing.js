@@ -30,9 +30,9 @@ $(document).ready(function () {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="info-user">
-                                            <b>Route:</b> 
+                                            <b>Route Start:</b> 
                                             <div style="text-align: center">
-                                                ${data.route} 
+                                                ${data.route_start} 
                                             </div>
                                         </div>
                                         <div class="info-user">
@@ -43,6 +43,12 @@ $(document).ready(function () {
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="info-user">
+                                            <b>Route End:</b> 
+                                            <div style="text-align: center">
+                                                ${data.route_end} 
+                                            </div>
+                                        </div>
                                         <div class="info-user">
                                             <b>Rate w/ discount:</b> 
                                             <div style="text-align: center">

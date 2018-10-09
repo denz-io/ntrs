@@ -16,9 +16,11 @@ Route::group(['middleware' => 'guest'], function() {
 });
 
 Route::group(['middleware' => 'user'], function() {
-    Route::resource('/home', 'Home');
+    Route::view('/home','home');
     Route::resource('/operator', 'Operator');
-    Route::get('/operator/delete/{id}', 'Operator@destroy');
+    Route::resource('/view-operator', 'ViewOperator');
+    Route::get('/view-operator/delete/{id}', 'ViewOperator@destroy');
+    Route::get('/view-operator/status/{id}', 'ViewOperator@accountStatus');
     Route::resource('/driver-registration', 'DriverRegistration');
     Route::post('/driver-registration/update', 'DriverRegistration@update');
     Route::get('/driver-registration/delete/{id}', 'DriverRegistration@destroy');

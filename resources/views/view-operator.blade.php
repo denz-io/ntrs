@@ -11,35 +11,53 @@
             <div class="card" style="margin-bottom: 31px;">
                <div class="card-header">
                    <i class="fa fa-info-circle fa-lg"> {{$operator->type}} Operator </i> 
+                   <strong>{{$operator->is_active ? '(Active)' : '(Inactive)'}}</strong>
+                   @if(Auth::user()->is_admin == 2)
+                       <button  onClick="accountStatus({{$operator->id}})" class="btn btn-warning">
+                           <i class="fa fa-{{ $operator->is_active ? 'thumbs-down' : 'thumbs-up'}} fa-lg"></i>
+                           {{$operator->is_active ? "Deactivate" : 'Activate' }}
+                       </button> 
+                   @endif
                    @if(Auth::user()->is_admin)
-                       <button  onClick="deleteOperator({{$operator->id}})" class="btn btn-danger to-right"><i class="fa fa-trash fa-lg"></i> Delete</button> 
+                       <button  onClick="deleteOperator({{$operator->id}})" class="btn btn-danger to-right" style="margin-right: 10px;"><i class="fa fa-trash fa-lg"></i> Delete</button> 
                        <button onClick="updateOperator()" type="submit" class="btn btn-primary to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
                    @endif
                    <button  onClick="printSingleItem('operator', {{$operator->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
-               <form  id="form-operator" action="/operator" method="POST" enctype="multipart/form-data">
+               <form  id="form-operator" action="/view-operator" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <div class="row" style="margin: auto; text-align:center;">
                                         <div  class="col-md-12" >
                                             <label>(Click to update profile)</label>
                                         </div>
                                         <div  class="col-md-12" >
-                                            <img src="{{ asset('storage/' . $operator->profile ) }}" id="act_profile" class="act_profile">
+                                            <img src="{{ $operator->profile ? asset('storage/' . $operator->profile) : asset('images/profile_default.jpg') }}" id="act_profile" class="act_profile">
                                             <input id="profile" type="file" name="profile" accept="image/*" style="display:none;">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="row" style="margin: auto; text-align:center;">
+                                        <div  class="col-md-12" >
+                                            <div style="padding-top: 90px">
+                                                <button type="button" class="btn btn-primary">Update Unit info</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
                                     <div class="row">
-                                        <div  class="col-md-2">
+                                        <div  class="col-md-3">
                                             <label for="name">Name:</label>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="col-md-9">
                                             <input  value="{{$operator->id}}" type="hidden" name="id" required>
                                             <input  value="{{$operator->type}}" type="hidden" name="type" required>
                                             <input  value="{{$operator->operator}}" type="text" class="form-control form-custom" name="operator" placeholder="(family,given,middle name)" required>
@@ -48,10 +66,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div  class="col-md-2">
+                                        <div  class="col-md-3">
                                             <label for="name">Associaton:</label>
                                         </div>
-                                        <div class="col-md-10">
+                                        <div class="col-md-9">
                                             @if($operator->type == 'Sikad-sikad')
                                                 <select value="{{$operator->association}}" name="association" class="form-control form-custom-select" id="drop-sikad">
                                                     @foreach ($assoc as $as )
@@ -74,7 +92,17 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <div  class="col-md-2">
+                                        <div  class="col-md-3">
+                                            <label for="name">Contact Number:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input  value="{{$operator->contact}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div  class="col-md-3">
                                             <label for="name">Address:</label>
                                         </div>
                                         <div class="col-md-9">
@@ -86,8 +114,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-3">
@@ -111,49 +137,10 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div  class="col-md-3">
-                                            <label for="name">Contact Number:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input  value="{{$operator->contact}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
                                             <label for="name">Sticker Number:</label>
                                         </div>
                                         <div class="col-md-9">
                                             <input  value="{{$operator->sticker_number}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
-                                            <label for="name">Units:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input  value="{{$operator->units}}" type="text" class="form-control form-custom" id="units" name="units" placeholder="Number of Units" required>
-                                            <div style="text-align: center;">
-                                                <label>(Units must match body number count.)</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
-                                            <label for="name">Body Number:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <textarea rows="3" cols="10" type="text" class="form-control form-custom" name="body_number" placeholder="Body Number" required>
-                                                {{$operator->body_number}} 
-                                            </textarea>
-                                            <div style="text-align: center;">
-                                                <label>(To add more Body#, values must be separted by commas)</label>
-                                                <label>Ex: 133123,233123,21323</label>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -213,5 +200,5 @@
     @include('modals.update-driver')
 @endsection
 @section('js')
-    <script src="{{ asset('js/operator.js') }}"></script>
+    <script src="{{ asset('js/view-operator.js') }}"></script>
 @endsection

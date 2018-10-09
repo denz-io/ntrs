@@ -20,9 +20,11 @@ class Registration extends Controller
         $this->validateRequest($request); 
         $photo =  new Photo;
         $request_array = $request->toArray();
-        $request_array['profile'] = $photo->upload($request->file('profile')); 
+        if ($request->file('profile')) {
+            $request_array['profile'] = $photo->upload($request->file('profile')); 
+        }
         $operator = Operator::create($request_array);
-        return redirect('/operator/' . $operator->id)->withErrors(['success'=>'Registration complete!']);
+        return redirect('/view-operator/' . $operator->id)->withErrors(['success'=>'Registration complete!']);
     }
 
     private function validateRequest($request)

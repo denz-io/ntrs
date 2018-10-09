@@ -90,7 +90,8 @@
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
-				<th>Description</th>
+				<th>Route Start</th>
+				<th>Route End</th>
 				<th>Rate</th>
 				<th>Rate w/ Discount</th>
                                 @if(Auth::user()->is_admin)
@@ -102,12 +103,13 @@
 			    @foreach($routes as $route)
 			        <tr>
                                 <td style="text-align: center;"><input data-id="{{$route->id}}" id="check_{{$route->id}}" class="to_check" onChange="setItems({{$route->id}})" type="checkbox" autocomplete="off"></td>
-                                <td>{{$route->route}}</td>
+                                <td>{{$route->route_start}}</td>
+                                <td>{{$route->route_end}}</td>
                                 <td>{{$route->rate}}</td>
                                 <td>{{$route->rate_discounted}}</td>
                                 @if(Auth::user()->is_admin)
                                     <td>
-                                        <button data-toggle="modal" data-id="{{$route->id}}" data-route="{{$route->route}}" data-rate="{{$route->rate}}" data-rate_discounted="{{$route->rate_discounted}}" data-target="#update-route-modal" class="btn btn-primary">
+                                        <button data-toggle="modal" data-id="{{$route->id}}" data-route_start="{{$route->route_start}}" data-route_end="{{$route->route_end}}" data-rate="{{$route->rate}}" data-rate_discounted="{{$route->rate_discounted}}" data-target="#update-route-modal" class="btn btn-primary">
                                             <i class="fa fa-pencil-square-o fa-lg"></i> Update  
                                         </button>
                                         <button onClick="deleteRoute({{$route->id}})" class="btn btn-danger">

@@ -1,9 +1,9 @@
 var body_numbers = [];
+var sticker_numbers = [];
 
 $(document).ready(function() {
-   $('#drop-sikad').prop('disabled', false).show(); 
+   $('#drop-sikad').prop('disabled', true).hide(); 
    $('#drop-tricycle').prop('disabled', true).hide(); 
-   $('#register-submit').prop('disabled',true);
    setTimeout(()=> {
        getSuggestedAssociation($('#register-type').val());
    }, 2000);
@@ -11,15 +11,23 @@ $(document).ready(function() {
 
 $('#register-type').on('change', function() {
     let self = this;
+
     if ($(self).val() == 'Sikad-sikad') {
        $('#drop-sikad').prop('disabled', false).show(); 
        $('#drop-tricycle').prop('disabled', true).hide(); 
+       getSuggestedAssociation($(self).val());
     }
+
     if ($(self).val() == 'Tricycle') {
        $('#drop-tricycle').prop('disabled', false).show(); 
        $('#drop-sikad').prop('disabled', true).hide(); 
+       getSuggestedAssociation($(self).val());
     }
-    getSuggestedAssociation($(self).val());
+
+    if ($(self).val() == 'Select vehicle type') {
+       $('#drop-sikad').prop('disabled', true).hide(); 
+       $('#drop-tricycle').prop('disabled', true).hide(); 
+    } 
 });
 
 function getSuggestedAssociation(type) {
@@ -55,20 +63,31 @@ $('#profile_input').on('change', function(event) {
 
 $('#units').on('change keyup', function() {
     $("#bodynumber").empty();
+    $("#stickernumber").empty();
     $('#body_number').val('');
+    $('#sticker_number').val('');
     body_numbers = [];
-    if ($('#units').val() > 0) {
+    if ($('#units').val() > 0 && $('#units').val() <= 100) {
         $("#bodynumber").append(`
             <div class="bnumber-title">
                 <label>Body Number:</label>
+            </div>
+        `);    
+        $("#stickernumber").append(`
+            <div class="bnumber-title">
+                <label>Sticker Number:</label>
             </div>
         `);    
         for (let i = 0; i < $('#units').val(); i++) {
             $("#bodynumber").append(`
                 <input type="text" class="form-custom bnumber" id="bi_${i}" placeholder="Body #" required>
             `);    
+            $("#stickernumber").append(`
+                <input type="text" class="form-custom snumber" id="si_${i}" placeholder="Sticker #" required>
+            `);    
         }
     }
+
 });
 
 $("body").on("keyup", ".bnumber", function(){
@@ -81,6 +100,13 @@ $("body").on("keyup", ".bnumber", function(){
     $('#body_number').val(body_numbers.toString());
 });
 
-$('#register-submit').click(() => {
-    console.log($('#profile_input').val());
+$("body").on("keyup", ".snumber", function(){
+    sticker_numbers = [];
+    $('.snumber').each((index) => {
+        if ($('#si_'+index).val()) {
+            sticker_numbers.push($('#si_'+index).val());
+        }
+    });
+    $('#sticker_number').val(sticker_numbers.toString());
 });
+

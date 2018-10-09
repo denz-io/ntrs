@@ -12,7 +12,11 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <input type="hidden" name="assoc_id" value="{{$assoc->id}}" required>
-                <input type="text" class="form-control form-custom" name="route" placeholder="Route" required>
+                <input type="text" class="form-control form-custom" name="route_start" placeholder="Route Start" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="assoc_id" value="{{$assoc->id}}" required>
+                <input type="text" class="form-control form-custom" name="route_end" placeholder="Route End" required>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control form-custom" name="rate" placeholder="Rate" required>

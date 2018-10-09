@@ -21,6 +21,12 @@
                         </a>
                     </li>
                     <li class="nav-item custom-nav-link">
+                        <a class="nav-link" href="/operator">
+                            <i class="fa fa-male fa-lg"></i>
+                            Operator 
+                        </a>
+                    </li>
+                    <li class="nav-item custom-nav-link">
                         <a class="nav-link" href="/association">
                             <i class="fa fa-address-book fa-lg"></i>
                             Associations 
