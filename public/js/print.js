@@ -9,11 +9,8 @@ setItems = id => {
 }
 
 removeItem = id => {
-    $.each(toPrint, (key, value) => {
-        if (id == value) {
-            toPrint.splice(key,1);
-        }
-    })
+    console.log(id);
+    toPrint.splice(toPrint.indexOf(id),1);
 }
 
 printItems = type => {
@@ -33,7 +30,6 @@ printItems = type => {
             $.post("/print", { 'type': type, 'toprint': toPrint }).done((success) => {
                 localStorage.setItem("printitems", JSON.stringify(success));
                 window.open('/print/'+ type, '_blank');
-                toPrint = []
             }).fail((error) => { console.log(error) });
         } else {
             sweetAlert("Nothing to print","Please select items to print.","info");

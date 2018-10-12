@@ -25,18 +25,18 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="picker-label">Body Number:</label>
-                <select name="body_number" class="form-control form-custom-select">
-                    @foreach ($body_numbers as $body_number )
-                        <option>{{$body_number}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <label class="picker-label">Sticker Number:</label>
                 <select name="sticker_number" class="form-control form-custom-select">
                     @foreach ($sticker_numbers as $sticker_number )
                         <option>{{$sticker_number}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="picker-label">Body Number:</label>
+                <select name="body_number" class="form-control form-custom-select">
+                    @foreach ($body_numbers as $body_number )
+                        <option>{{$body_number}}</option>
                     @endforeach
                 </select>
             </div>

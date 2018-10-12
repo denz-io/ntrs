@@ -32,6 +32,18 @@ $(document).ready(function () {
                                     </div>
                                     <div class="col-md-9">
                                         <div class="info-user">
+                                            <b>Registration type:</b> 
+                                            <div style="text-align: center">
+                                                ${data.type}
+                                            </div>
+                                        </div>
+                                        <div class="info-user">
+                                            <b>Association:</b> 
+                                            <div style="text-align: center">
+                                                ${data.association}
+                                            </div>
+                                        </div>
+                                        <div class="info-user">
                                             <b>Name:</b> 
                                             <div style="text-align: center">
                                                 ${data.operator}
@@ -50,27 +62,21 @@ $(document).ready(function () {
                                             </div>
                                         </div>
                                         <div class="info-user">
-                                            <b>Body Number:</b> 
+                                            <b>Body Numbers:</b> 
                                             <div style="text-align: center">
                                                 ${data.body_number}
+                                            </div>
+                                        </div>
+                                        <div class="info-user">
+                                            <b>Sticker Numbers:</b> 
+                                            <div style="text-align: center">
+                                                ${data.sticker_number}
                                             </div>
                                         </div>
                                         <div class="info-user">
                                             <b>OR Number:</b> 
                                             <div style="text-align: center">
                                                 ${data.or_number}
-                                            </div>
-                                        </div>
-                                        <div class="info-user">
-                                            <b>Registration type:</b> 
-                                            <div style="text-align: center">
-                                                ${data.type}
-                                            </div>
-                                        </div>
-                                        <div class="info-user">
-                                            <b>Association:</b> 
-                                            <div style="text-align: center">
-                                                ${data.association}
                                             </div>
                                         </div>
                                         <div class="info-user">
@@ -83,12 +89,6 @@ $(document).ready(function () {
                                             <b>Amount Paid:</b> 
                                             <div style="text-align: center">
                                                 ${data.amount_paid}
-                                            </div>
-                                        </div>
-                                        <div class="info-user">
-                                            <b>Sticker Number:</b> 
-                                            <div style="text-align: center">
-                                                ${data.sticker_number ? data.sticker_number : 'none'}
                                             </div>
                                         </div>
                                     </div>

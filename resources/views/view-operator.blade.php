@@ -163,6 +163,7 @@
 				<th>Address</th>
 				<th>Contact</th>
                                 <th>Sticker No.</th>
+                                <th>Body No.</th>
                                 @if(Auth::user()->is_admin)
                                     <th>Option</th>
                                 @endif
@@ -175,6 +176,7 @@
                                     <td>{{$driver->address}}</td>
                                     <td>{{$driver->contact}}</td>
                                     <td>{{$driver->sticker_number}}</td>
+                                    <td>{{$driver->body_number}}</td>
                                     @if(Auth::user()->is_admin)
                                     <td>
                                         <button data-id="{{$driver->id}}" data-sticker_number="{{$driver->sticker_number}}" data-contact="{{$driver->contact}}" data-address="{{$driver->address}}" data-name="{{$driver->name}}" data-toggle="modal" data-target="#update-driver-modal" class="btn btn-primary custom-button-table"><i class="fa fa-pencil-square-o"></i> Update</button>
