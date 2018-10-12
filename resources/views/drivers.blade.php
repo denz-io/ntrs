@@ -38,7 +38,7 @@
                                     <td>
                                         <a href="/view-operator/{{$driver->operator_id}}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View Operator</a>
                                         @if(Auth::user()->is_admin)
-                                            <a onClick="deleteDelete({{$driver->id}})" href="#" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</a>
+                                            <a onClick="deleteDelete({{$driver->id}})" href="#" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</a>
                                         @endif
                                         </td>
                                 </tr>

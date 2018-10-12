@@ -12,11 +12,11 @@
                 <div class="card-header">
                    <i class="fa fa-male fa-lg"> Operator</i> 
                    @if(Auth::user()->is_admin == 2)
-                       <button  onClick="deactivateAll()" class="btn btn-warning to-right" style="margin-left: 10px;">
+                       <button  onClick="deactivateAll()" class="btn btn-success to-right" style="margin-left: 10px;">
                            <i class="fa fa-thumbs-down fa-lg"></i>
                            Deactivate all accounts
                        </button> 
-                       <button  onClick="deactivateAll()" class="btn btn-primary to-right" style="margin-left: 10px;">
+                       <button  onClick="activateAll()" class="btn btn-success to-right" style="margin-left: 10px;">
                            <i class="fa fa-thumbs-up fa-lg"></i>
                            Activate all accounts
                        </button> 
@@ -29,7 +29,6 @@
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
-				<th>Sticker Number</th>
 				<th>Name</th>
 				<th>Type</th>
 				<th>Association</th>
@@ -40,15 +39,26 @@
 			    @foreach($operators as $operator)
                                 <tr>
                                     <td style="text-align: center;"><input data-id="{{$operator->id}}" id="check_{{$operator->id}}" class="to_check" onChange="setItems({{$operator->id}})" type="checkbox" autocomplete="off"></td>
-                                    <td>{{$operator->sticker_number}}</td>
                                     <td>{{$operator->operator}}</td>
                                     <td>{{$operator->type}}</td>
-                                    <td>{{$operator->association}}</td>
-                                    <td>{{$operator->is_active ? 'Active' : 'Inactive'}}</td>
+                                    @foreach($assoc as $ass)
+                                        @if($ass->name_short == $operator->association)
+                                            <td style="color: {{$ass->color}};">
+                                                <strong>{{$operator->association}}</strong>
+                                            </td>
+                                        @endif
+                                    @endforeach
+                                    <td>
+                                        @if($operator->is_active)
+                                            <strong style="color: green">Active<strong> 
+                                        @else
+                                            <strong style="color: red">Inactive<strong> 
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{'/view-operator/' . $operator->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
                                         @if(Auth::user()->is_admin)
-                                            <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-danger"><i class="fa fa-trash fa-lg"></i> Delete</a> 
+                                            <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-success"><i class="fa fa-trash fa-lg"></i> Delete</a> 
                                         @endif
                                     </td>
                                 </tr>

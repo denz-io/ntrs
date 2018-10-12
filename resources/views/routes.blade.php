@@ -36,7 +36,7 @@
                                     <td>
                                         <a href="/association/view/{{$route->assoc_id}}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View Association</a>
                                         @if(Auth::user()->is_admin)
-                                            <a href="#" onClick="deleteRouet({{$route->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</a>
+                                            <a href="#" onClick="deleteRouet({{$route->id}})" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</a>
                                         @endif
                                     </td>
                                 </tr>

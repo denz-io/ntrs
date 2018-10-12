@@ -55,3 +55,51 @@ $('#profile').on('change', function(event) {
 
   reader.readAsDataURL(selectedFile);
 });
+
+removeInput = event => {
+    $($(event.target).parent()).remove();
+}
+
+addNumberContainer = () => {
+    $('#main_number_container').append(`
+        <div class="form-group number_contianer" >
+            <button onClick="removeInput(event)" type="button" class="btn btn-success" style="margin: 0px 0px 10px 0px;">
+                <i class="fa fa-ban fa-lg"></i>
+            </button>
+            <div style="padding-top: 5px;">
+                Stickers Number:
+                <input type="text" class="form-control form-custom" placeholder="Sticker Number" required>
+                Body Number:
+                <input type="text" class="form-control form-custom" placeholder="Body Number" required>
+            </div>
+        </div>
+    `);
+}
+
+updateNumbers = (id) => {
+    let sticker = [];
+    let body = [];
+    let passdata = true;
+    $('.number_contianer').each((key,item) => {
+        let input = $($(item).children()[1]).children();
+        sticker.push($(input[0]).val());
+        body.push($(input[1]).val());
+
+        $(input[0]).css('border', '1px solid #D7D7D7');
+        $(input[1]).css('border', '1px solid #D7D7D7');
+
+        if (!$(input[0]).val()) {
+            $(input[0]).css('border', '1px solid red');
+            passdata = false;
+        }
+        if (!$(input[1]).val()) {
+            $(input[1]).css('border', '1px solid red');
+            passdata = false;
+        }
+    });
+    if (passdata) {
+        if (confirm("Update unit information?")) {
+            window.location = `/update-unit-number/${id}/${sticker}/${body}`;
+        }
+    }
+}

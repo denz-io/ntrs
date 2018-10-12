@@ -15,6 +15,7 @@ class ManageUsers extends Controller
 
     public function store(Request $request)
     {
+        $this->validateForm($request);
         User::create($request->all());
         Alert::success('Success!', 'User created succesfully.');
         return redirect()->back();
@@ -24,9 +25,14 @@ class ManageUsers extends Controller
     {
         $update = $request->all();
         $update['is_admin'] = $request->is_admin ?? 0;
-        User::find($request->id)->update($update);
-        Alert::success('Success!', 'User info updated succesfully.');
-        return redirect()->back();
+        if (!User::where('username', '=',$request->username)->where('id', '!=',$request->id)->first()) {
+            User::find($request->id)->update($update);
+            Alert::success('Success!', 'User info updated succesfully.');
+            return redirect()->back();
+        } else {
+            Alert::error('Error!', 'Username has already been taken.');
+            return redirect()->back();
+        }
     }
 
     public function settingsUpdate(Request $request)
@@ -41,5 +47,20 @@ class ManageUsers extends Controller
         User::find($id)->delete();
         Alert::success('Success!', 'User deleted succesfully.');
         return redirect()->back();
+    }
+
+    private function validateForm($request)
+    {
+        $request->validate([
+            'username'  => 'required|unique:users',
+            'fname'     => 'required|max:255',
+            'lname'     => 'required|max:255',
+            'password'  => 'required|max:255'
+        ],[
+            'username.required'  => 'Username is required.',
+            'username.unique'    => 'Username already exist.',
+            'fname.required'     => 'First name is required.',
+            'lname.required'     => 'Last name is required.',
+        ]);
     }
 }

@@ -15,6 +15,7 @@ class Association extends Controller
 
     public function store(Request $request)
     {
+        $this->validateForm($request);
         Assoc::create($request->all());
         Alert::success('Success!', 'A new association has been registered.');
         return redirect()->back();
@@ -24,7 +25,7 @@ class Association extends Controller
     {
         Assoc::find($id)->delete();
         Alert::success('Success!', 'Association has been deleted.');
-        return redirect()->back();
+        return redirect('/association');
     }
 
     public function view($id)
@@ -34,9 +35,32 @@ class Association extends Controller
 
     public function update(Request $request)
     {
-        Assoc::find($request->id)->update($request->all());
-        Alert::success('Success!', 'Information has been updated.');
-        return redirect()->back();
+        if (!Assoc::where('name_short', '=',$request->name_short)->where('id', '!=', $request->id)->first() || 
+            !Assoc::where('name_full', '=',$request->name_short)->where('id', '!=', $request->id)->first()) {
+            Assoc::find($request->id)->update($request->all());
+            Alert::success('Success!', 'Information has been updated.');
+            return redirect()->back();
+        } else {
+            Alert::error('Error!', 'Association names are already taken.');
+            return redirect()->back();
+        }
+    }
+
+    private function validateForm($request)
+    {
+        $request->validate([
+            'name_short' => 'required|unique:associations',
+            'name_full'  => 'required|unique:associations',
+            'type'       => 'required|max:255',
+            'head'       => 'required|max:255',
+            'contact'    => 'required|max:255',
+            'color'      => 'required|max:255'
+        ],[
+            'name_short.required' => 'Association shortname is required.',
+            'name_short.unique'   => 'Association shortname must be unique.',
+            'name_full.required'  => 'Association name must is required.',
+            'name_full.unique'    => 'Association name must be unique.',
+        ]);
     }
 
 }

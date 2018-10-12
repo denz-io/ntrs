@@ -13,5 +13,6 @@ class Driver extends Model
         'contact',
         'type',
         'sticker_number',
+        'body_number',
     ];
 }

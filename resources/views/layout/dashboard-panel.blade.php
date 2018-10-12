@@ -44,7 +44,7 @@
                             Routes 
                         </a>
                     </li>
-                    @if(Auth::user()->is_admin)
+                    @if(Auth::user()->is_admin == 2)
                         <li class="nav-item custom-nav-link">
                             <a class="nav-link" href="/sms">
                                 <i class="fa fa-envelope fa-lg"></i>

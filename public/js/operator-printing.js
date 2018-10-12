@@ -28,7 +28,7 @@ $(document).ready(function () {
                                 <h3>Operators Information:</h3>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <img class="act_profile" src="${image_url}/storage/${data.profile}">
+                                        <img class="act_profile" src="${image_url}${data.profile ? '/storage/' + data.profile : 'images/profile_default.jpg'}">
                                     </div>
                                     <div class="col-md-9">
                                         <div class="info-user">
@@ -128,7 +128,7 @@ function getDate()
     let y = today.getFullYear();
     let mth = today.getMonth() + 1;
     let d = today.getDate();
-    return  y + '-' + d + '-' + monthNames[mth - 1]; 
+    return  y + '/' + d + '/' + monthNames[mth - 1]; 
 }
 
 

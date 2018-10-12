@@ -1,10 +1,42 @@
 body{
     background: #50a3a2;
-    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+    font-family: 'Roboto Slab', monospace;
+}
+
+#date {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+#time {
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.dropdown-menu {
+    font-size: 14px;
+}
+
+.btn {
+    font-size: 14px;
+    background-color: #DE538B !important;
+    border: #DE538B;
+}
+
+.btn:hover {
+    background-color: #F5CCDC !important;
+    color: black;
+}
+
+.picker-custom {
+    width: 100%;
+    height: 37px;
+}
+
+.picker-label {
+    font-size: 20px;
+    color: #464a4c;
 }
 
 .home-label{
@@ -12,7 +44,6 @@ body{
     padding-top: 70px;
     text-align: center;
     background: none;
-    font-family: Monospace;
     color: white;
 }
 
@@ -67,7 +98,7 @@ body{
     border: none;
     padding-top: 10px !important; 
     padding-bottom: 10px !important; 
-    font-size: 15px; 
+    font-size: 14px; 
     font-weight: 400;
     transition: 0.3s;
 }

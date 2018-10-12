@@ -1,7 +1,6 @@
 var toPrint = [];
 
-function setItems(id) 
-{
+setItems = id => {
     if ($('#check_'+ id).prop('checked')) {
         toPrint.push(id);
     } else {
@@ -9,8 +8,7 @@ function setItems(id)
     }
 }
 
-function removeItem(id)
-{
+removeItem = id => {
     $.each(toPrint, (key, value) => {
         if (id == value) {
             toPrint.splice(key,1);
@@ -18,9 +16,12 @@ function removeItem(id)
     })
 }
 
-function printItems(type)
-{
-    if( $('#print_all').prop('checked') ) {
+printItems = type => {
+    let table_input = $('.dataTables_filter').children()[0].childNodes[1];
+
+    if ($(table_input).val()) {
+        confirm(`Print records related to search query?`) ? printItemsBasedQuery(type, $(table_input).val()) : null;
+    } else if( $('#print_all').prop('checked')) {
         confirm(`Print all ${type}s?`) ? printAllItems(type) : null;
     } else {
         if (toPrint.length > 0) {
@@ -40,6 +41,22 @@ function printItems(type)
     }
 }
 
+printItemsBasedQuery = (type, query) => {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("#csrf_token").val()
+        }
+    });
+    $.post("/print-query", { 'type': type , 'query': query }).done((success) => {
+        if (success.length) {
+            localStorage.setItem("printitems", JSON.stringify(success));
+            window.open('/print/'+ type , '_blank');
+        } else {
+            sweetAlert("Nothing to print","Search query did not match","info");
+        }
+    }).fail((error) => { console.log(error) });
+}
+
 function printAllItems(type)
 {
     $.ajaxSetup({
@@ -48,8 +65,12 @@ function printAllItems(type)
         }
     });
     $.post("/print-all", { 'type': type }).done((success) => {
-        localStorage.setItem("printitems", JSON.stringify(success));
-        window.open('/print/'+ type, '_blank');
+        if (success.length) {
+            localStorage.setItem("printitems", JSON.stringify(success));
+            window.open('/print/'+ type, '_blank');
+        } else {
+            sweetAlert("Nothing to print","Records do not exist","info");
+        }
     }).fail((error) => { console.log(error) });
 }
 

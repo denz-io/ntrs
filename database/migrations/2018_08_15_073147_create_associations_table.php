@@ -15,11 +15,12 @@ class CreateAssociationsTable extends Migration
     {
         Schema::create('associations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_short');
-            $table->string('name_full');
+            $table->string('name_short')->unique();
+            $table->string('name_full')->unique();
             $table->string('type');
             $table->string('head');
             $table->string('contact');
+            $table->string('color');
             $table->timestamps();
         });
     }

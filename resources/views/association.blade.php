@@ -12,7 +12,7 @@
                <div class="card-header">
                    <i class="fa fa-users fa-lg"></i> Associations 
                    @if(Auth::user()->is_admin)
-                       <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-primary to-right">
+                       <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-success to-right">
                            <i class="fa fa-plus fa-lg"></i> 
                            Add new Association
                        </button>
@@ -37,13 +37,17 @@
 			    @foreach($associations as $association)
                                 <tr>
                                     <td style="text-align: center;"><input data-id="{{$association->id}}" id="check_{{$association->id}}" class="to_check" onChange="setItems({{$association->id}})" type="checkbox" autocomplete="off"></td>
-                                    <td>{{$association->name_short}}</td>
+                                    <td style="color: {{$association->color}}">
+                                        <strong>
+                                            {{$association->name_short}}
+                                        </strong>
+                                    </td>
                                     <td>{{$association->head}}</td>
                                     <td>{{$association->type}}</td>
                                     <td>
                                         <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
                                         @if(Auth::user()->is_admin)
-                                            <button onClick="deleteAssoc({{$association->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
+                                            <button onClick="deleteAssoc({{$association->id}})" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</button>
                                         @endif
                                         </td>
                                 </tr>

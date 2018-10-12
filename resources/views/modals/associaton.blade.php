@@ -28,6 +28,10 @@
             <div class="form-group">
                 <input type="text" class="form-control form-custom" name="contact" placeholder="Contact" required>
             </div>
+            <div class="form-group">
+                <label class="picker-label">Pick Color:</label>
+                <input type="color" class="picker-custom" name="color" required>
+            </div>
             <div class="form-group" style="text-align: center;">
                 <button class="btn btn-success custom-button-radius" type="submit" href="#">Create Association</button>
             </div>

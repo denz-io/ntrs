@@ -53,6 +53,77 @@ class Printing extends Controller
         }
     }
 
+    public function printQuery(Request $request)
+    {
+        $data = [];
+        switch($request['type']) {
+            case 'operator':    
+                if (count($found = Operator::where('operator', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Operator::where('association', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Operator::where('type', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (strtolower($request['query']) == 'active' || strtolower($request['query']) == 'inactive') {
+                    if ($found = Operator::where('is_active', strtolower($request['query']) == 'active' ? 1 : 0)->get()) {
+                        $data = $found;
+                    }
+                }
+                break;
+            case 'association':     
+                if (count($found = Association::where('type', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Association::where('name_short', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Association::where('head', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Association::where('contact', $request['query'])->get())) {
+                    $data = $found;
+                }
+                break;
+            case 'driver':     
+                if (count($found = Driver::where('name', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Driver::where('type', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Driver::where('address', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Driver::where('contact', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Driver::where('sticker_number', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Driver::where('body_number', $request['query'])->get())) {
+                    $data = $found;
+                }
+                break;
+            case 'route':     
+                if (count($found = Route::where('route_start', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Route::where('route_end', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Route::where('rate', $request['query'])->get())) {
+                    $data = $found;
+                }
+                if (count($found = Route::where('rate_discounted', $request['query'])->get())) {
+                    $data = $found;
+                }
+                break;
+        }
+        return count($data) ? $data->toArray() : [];
+    }
     private function getData($request)
     {
         $data = [];

@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     <div class="row" style="margin: auto; text-align:center;">
                                         <div  class="col-md-12" >
-                                            <label>(Click to update profile)</label>
+                                            <label>(Click to pick new profile)</label>
                                         </div>
                                         <div  class="col-md-12" >
                                             <img src="{{ $operator->profile ? asset('storage/' . $operator->profile) : asset('images/profile_default.jpg') }}" id="act_profile" class="act_profile">
@@ -44,8 +44,11 @@
                                 <div class="form-group">
                                     <div class="row" style="margin: auto; text-align:center;">
                                         <div  class="col-md-12" >
-                                            <div style="padding-top: 90px">
-                                                <button type="button" class="btn btn-primary">Update Unit info</button>
+                                            <div style="padding-top: 50px">
+                                                <label>Units: {{ $operator->units }}</label>
+                                            </div>
+                                            <div style="padding-top: 10px">
+                                                <button type="button" data-target="#operator-unit-modal" data-toggle="modal" class="btn btn-primary">Update Unit info</button>
                                             </div>
                                         </div>
                                     </div>
@@ -134,16 +137,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div  class="col-md-3">
-                                            <label for="name">Sticker Number:</label>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <input  value="{{$operator->sticker_number}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -198,6 +191,7 @@
     </div>
     @include('modals.new-driver')
     @include('modals.update-driver')
+    @include('modals.operator-units')
 @endsection
 @section('js')
     <script src="{{ asset('js/view-operator.js') }}"></script>

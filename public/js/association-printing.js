@@ -91,7 +91,7 @@ function getDate()
     let y = today.getFullYear();
     let mth = today.getMonth() + 1;
     let d = today.getDate();
-    return  y + '-' + d + '-' + monthNames[mth - 1]; 
+    return  y + '/' + d + '/' + monthNames[mth - 1]; 
 }
 
 

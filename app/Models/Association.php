@@ -12,5 +12,6 @@ class Association extends Model
         'type',
         'head',
         'contact',
+        'color'
     ];
 }

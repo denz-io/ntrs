@@ -18,9 +18,12 @@ Route::group(['middleware' => 'guest'], function() {
 Route::group(['middleware' => 'user'], function() {
     Route::view('/home','home');
     Route::resource('/operator', 'Operator');
+    Route::get('/operator-activate', 'Operator@activateAllAccounts');
+    Route::get('/operator-deactivate', 'Operator@deactivateAllAccounts');
     Route::resource('/view-operator', 'ViewOperator');
     Route::get('/view-operator/delete/{id}', 'ViewOperator@destroy');
     Route::get('/view-operator/status/{id}', 'ViewOperator@accountStatus');
+    Route::get('/update-unit-number/{id}/{sticker}/{body}', 'ViewOperator@updateUnitNumber');
     Route::resource('/driver-registration', 'DriverRegistration');
     Route::post('/driver-registration/update', 'DriverRegistration@update');
     Route::get('/driver-registration/delete/{id}', 'DriverRegistration@destroy');
@@ -37,6 +40,7 @@ Route::group(['middleware' => 'user'], function() {
     Route::resource('/sms', 'SMS');
     Route::resource('/print', 'Printing');
     Route::post('/print-all', 'Printing@printAll');
+    Route::post('/print-query', 'Printing@printQuery');
     Route::post('/print-single', 'Printing@printSingle');
     Route::resource('/autosuggest','AutoSuggestion');
     Route::resource('/manage-users', 'ManageUsers');

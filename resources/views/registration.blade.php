@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="type" class="form-control form-custom-select" id="register-type">
-                                        <option selected>Select vehicle type</option>
+                                        <option selected disabled>Select Vehicle Type</option>
                                         <option>Sikad-sikad</option>
                                         <option>Tricycle</option>
                                     </select>
@@ -59,6 +59,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select name="address" class="form-control form-custom-select">
+                                        <option selected disabled>Select Address</option>
                                         @foreach ($brgy as $item )
                                             <option>{{$item}}</option>
                                         @endforeach
@@ -84,7 +85,7 @@
                                     <input type="text" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
                                 </div>
                                 <div class="to-center">
-                                    <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-primary custom-button" >
+                                    <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-success custom-button" >
                                         <i class="fa fa-floppy-o fa-lg"></i> Register
                                     </button>
                                 </div>

@@ -57,6 +57,17 @@ class ViewOperator extends Controller
         return redirect()->back();
     }
 
+    public function updateUnitNumber($id,$sticker,$body) {
+        $unit = count(explode(',',$sticker));
+        Oper::find($id)->update([
+            'units' => $unit,
+            'sticker_number' => $sticker,
+            'body_number' => $body,
+        ]);
+        Alert::success('Success!','Units updated.');
+        return redirect()->back();
+    }
+
     private function validateRequest($request)
     {
         $request->validate([
@@ -67,6 +78,10 @@ class ViewOperator extends Controller
             'amount_paid'    => 'required|regex:/^\d*(\.\d{1,2})?$/',     
             'contact'        => 'required',     
             'profile'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'or_number.required'   => 'The O.R. Number is required',     
+            'amount_paid.required' => 'The amount paid is required',     
+            'amount_paid.regex'    => 'Incorrect format for amount paid',     
         ]);
     }
 }

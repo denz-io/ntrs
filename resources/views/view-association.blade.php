@@ -10,9 +10,12 @@
         <div class="col-md-12">
             <div class="card" style="margin-bottom: 31px;">
                <div class="card-header">
-                   @if(Auth::user()->is_admin)
-                   <i class="fa fa-info-circle fa-lg"> {{$assoc->name_short}}</i> 
-                       <button onClick="updateAssoc()" type="submit" class="btn btn-primary to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
+                   @if(Auth::user()->is_admin == 2)
+                       <i class="fa fa-info-circle fa-lg"> 
+                           <label style="color:{{$assoc->color}}">{{$assoc->name_short}}</label>
+                       </i> 
+                       <button onClick="updateAssoc()" type="submit" class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
+                       <button onClick="deleteAssoc({{$assoc->id}})" class="btn btn-success custom-button-table to-right" style="margin-right: 10px;"><i class="fa fa-trash"></i> Delete</button>
                    @endif
                    <button  onClick="printSingleItem('association', {{$assoc->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
@@ -68,6 +71,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div  class="col-md-3">
+                                            <label>Pick Color:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input value="{{$assoc->color}}" type="color" class="picker-custom" name="color" required>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +90,7 @@
                <div class="card-header">
                    <i class="fa fa-road fa-lg"></i> Routes
                    @if(Auth::user()->is_admin)
-                       <button data-toggle="modal" data-target="#route-modal" class="btn btn-primary to-right">
+                       <button data-toggle="modal" data-target="#route-modal" class="btn btn-success to-right">
                            <i class="fa fa-plus fa-lg"></i> Register New Route
                        </button>
                    @endif
@@ -109,10 +122,10 @@
                                 <td>{{$route->rate_discounted}}</td>
                                 @if(Auth::user()->is_admin)
                                     <td>
-                                        <button data-toggle="modal" data-id="{{$route->id}}" data-route_start="{{$route->route_start}}" data-route_end="{{$route->route_end}}" data-rate="{{$route->rate}}" data-rate_discounted="{{$route->rate_discounted}}" data-target="#update-route-modal" class="btn btn-primary">
+                                        <button data-toggle="modal" data-id="{{$route->id}}" data-route_start="{{$route->route_start}}" data-route_end="{{$route->route_end}}" data-rate="{{$route->rate}}" data-rate_discounted="{{$route->rate_discounted}}" data-target="#update-route-modal" class="btn btn-success">
                                             <i class="fa fa-pencil-square-o fa-lg"></i> Update  
                                         </button>
-                                        <button onClick="deleteRoute({{$route->id}})" class="btn btn-danger">
+                                        <button onClick="deleteRoute({{$route->id}})" class="btn btn-success">
                                             <i class="fa fa-trash fa-lg"></i> Delete  
                                         </button>
                                     </td> 
