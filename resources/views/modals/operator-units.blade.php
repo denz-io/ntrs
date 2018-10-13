@@ -8,15 +8,22 @@
           </button>
       </div>
       <div class="modal-body">
-      <button onClick=addNumberContainer() type="button" class="btn btn-success to-right">
-          <i class="fa fa-plus fa-lg"></i>
-      </button>
+      @if(Auth::user()->is_admin)
+          <button onClick=addNumberContainer() type="button" class="btn btn-success to-right">
+              <i class="fa fa-plus fa-lg"></i>
+          </button>
+      @endif
       <div id="main_number_container" style="padding-top: 10px;">
           @foreach($sticker_numbers as $key => $sticker_number)
+              @if(!Auth::user()->is_admin)
+                  {{$key + 1}})
+              @endif
               <div class="form-group number_contianer" >
-                  <button onClick="removeInput(event)" type="button" class="btn btn-success" style="margin: 0px 0px 10px 0px;">
-                      <i class="fa fa-ban fa-lg"></i>
-                  </button>
+                  @if(Auth::user()->is_admin)
+                      <button onClick="removeInput(event)" type="button" class="btn btn-success" style="margin: 0px 0px 10px 0px;">
+                          <i class="fa fa-ban fa-lg"></i>
+                      </button>
+                  @endif
                   <div style="padding-top: 5px;">
                       Stickers Number:
                       <input type="text" class="form-control form-custom" value="{{$sticker_number}}" placeholder="Sticker Number" required>

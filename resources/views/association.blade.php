@@ -11,7 +11,7 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-users fa-lg"></i> Associations 
-                   @if(Auth::user()->is_admin)
+                   @if(Auth::user()->is_admin == 2)
                        <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-success to-right">
                            <i class="fa fa-plus fa-lg"></i> 
                            Add new Association

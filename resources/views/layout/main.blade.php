@@ -46,7 +46,7 @@
 
 
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-				    @if(Auth::user()->is_admin)
+				    @if(Auth::user()->is_admin == 2)
                                         <a class="dropdown-item" href="/manage-users">
                                             <i class="fa fa-lg fa-plus"></i> Manage Accounts
                                             

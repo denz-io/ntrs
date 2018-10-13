@@ -48,7 +48,7 @@
                                                 <label>Units: {{ $operator->units }}</label>
                                             </div>
                                             <div style="padding-top: 10px">
-                                                <button type="button" data-target="#operator-unit-modal" data-toggle="modal" class="btn btn-primary">Update Unit info</button>
+                                                <button type="button" data-target="#operator-unit-modal" data-toggle="modal" class="btn btn-primary">{{ Auth::user()->is_admin ? 'Update Unit info' : 'View Unit Info' }}</button>
                                             </div>
                                         </div>
                                     </div>

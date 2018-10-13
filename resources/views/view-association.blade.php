@@ -89,7 +89,7 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-road fa-lg"></i> Routes
-                   @if(Auth::user()->is_admin)
+                   @if(Auth::user()->is_admin == 2)
                        <button data-toggle="modal" data-target="#route-modal" class="btn btn-success to-right">
                            <i class="fa fa-plus fa-lg"></i> Register New Route
                        </button>

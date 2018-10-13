@@ -20,12 +20,12 @@ body{
 
 .btn {
     font-size: 14px;
-    background-color: #DE538B !important;
+    background-color: green !important;
     border: #DE538B;
 }
 
-.btn:hover {
-    background-color: #F5CCDC !important;
+.btn:hover { 
+    background-color: #B3FF9E !important;
     color: black;
 }
 
