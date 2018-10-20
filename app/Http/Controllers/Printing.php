@@ -80,7 +80,7 @@ class Printing extends Controller
                 if (count($found = Association::where('name_short', $request['query'])->get())) {
                     $data = $found;
                 }
-                if (count($found = Association::where('head', $request['query'])->get())) {
+                if (count($found = Association::where('association_head', $request['query'])->get())) {
                     $data = $found;
                 }
                 if (count($found = Association::where('contact', $request['query'])->get())) {
@@ -124,6 +124,7 @@ class Printing extends Controller
         }
         return count($data) ? $data->toArray() : [];
     }
+
     private function getData($request)
     {
         $data = [];

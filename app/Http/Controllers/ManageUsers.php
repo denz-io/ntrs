@@ -29,10 +29,9 @@ class ManageUsers extends Controller
             User::find($request->id)->update($update);
             Alert::success('Success!', 'User info updated succesfully.');
             return redirect()->back();
-        } else {
-            Alert::error('Error!', 'Username has already been taken.');
-            return redirect()->back();
-        }
+        } 
+        Alert::error('Error!', 'Username has already been taken.');
+        return redirect()->back();
     }
 
     public function settingsUpdate(Request $request)

@@ -12,7 +12,7 @@
                <div class="card-header">
                    @if(Auth::user()->is_admin == 2)
                        <i class="fa fa-info-circle fa-lg"> 
-                           <label style="color:{{$assoc->color}}">{{$assoc->name_short}}</label>
+                           <label style="color:{{$assoc->association_color}}">{{$assoc->name_short}}</label>
                        </i> 
                        <button onClick="updateAssoc()" type="submit" class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
                        <button onClick="deleteAssoc({{$assoc->id}})" class="btn btn-success custom-button-table to-right" style="margin-right: 10px;"><i class="fa fa-trash"></i> Delete</button>
@@ -54,7 +54,7 @@
                                             <label for="name">Association Head:</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input  value="{{$assoc->head}}" type="text" class="form-control form-custom" name="head" placeholder="Address" required>
+                                            <input  value="{{$assoc->association_head}}" type="text" class="form-control form-custom" name="association_head" placeholder="Address" required>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                             <label>Pick Color:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input value="{{$assoc->color}}" type="color" class="picker-custom" name="color" required>
+                                            <input value="{{$assoc->association_color}}" type="color" class="picker-custom" name="association_color" required>
                                         </div>
                                     </div>
                                 </div>

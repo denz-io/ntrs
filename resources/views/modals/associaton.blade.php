@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-custom" name="head" placeholder="Head of Associaton" required>
+                <input type="text" class="form-control form-custom" name="association_head" placeholder="Head of Associaton" required>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control form-custom" name="contact" placeholder="Contact" required>

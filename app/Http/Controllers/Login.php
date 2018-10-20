@@ -16,14 +16,24 @@ class Login extends Controller
     public function store(Request $request)
     {
         if ($user = User::where('username', $request->username)->first()) {
-            if(strcmp($request->username, $user->username) == 0) {
-                if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-                    return redirect('/home');
-                }
-                return redirect()->back()->withErrors(['error-message' => 'Authentication failed.']);
-            }
-            return redirect()->back()->withErrors(['error-message' => 'Username is case sensitive.']);
+            return $this->validateUsername($user, $request);
         }
         return redirect()->back()->withErrors(['error-message' => 'Username does not match any records.']);
+    }
+
+    private function validateUsername($user, $request)
+    {
+        if(strcmp($request->username, $user->username) == 0) {
+            return $this->attemptLogin($request);
+        }
+        return redirect()->back()->withErrors(['error-message' => 'Username is case sensitive.']);
+    }
+
+    private function attemptLogin($request)
+    {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect('/home');
+        }
+        return redirect()->back()->withErrors(['error-message' => 'Authentication failed.']);
     }
 }

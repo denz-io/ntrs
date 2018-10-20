@@ -37,12 +37,12 @@
 			    @foreach($associations as $association)
                                 <tr>
                                     <td style="text-align: center;"><input data-id="{{$association->id}}" id="check_{{$association->id}}" class="to_check" onChange="setItems({{$association->id}})" type="checkbox" autocomplete="off"></td>
-                                    <td style="color: {{$association->color}}">
+                                    <td style="color: {{$association->association_color}}">
                                         <strong>
                                             {{$association->name_short}}
                                         </strong>
                                     </td>
-                                    <td>{{$association->head}}</td>
+                                    <td>{{$association->association_head}}</td>
                                     <td>{{$association->type}}</td>
                                     <td>
                                         <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>

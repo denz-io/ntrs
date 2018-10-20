@@ -43,6 +43,12 @@ $(document).ready(function () {
                                     </div>
                                     <div class="col-md-6">
                                         <div class="info-user">
+                                            <b>Association Head:</b> 
+                                            <div style="text-align: center">
+                                                ${data.association_head}
+                                            </div>
+                                        </div>
+                                        <div class="info-user">
                                             <b>Contact:</b> 
                                             <div style="text-align: center">
                                                 ${data.contact}

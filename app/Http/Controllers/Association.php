@@ -49,12 +49,12 @@ class Association extends Controller
     private function validateForm($request)
     {
         $request->validate([
-            'name_short' => 'required|unique:associations',
-            'name_full'  => 'required|unique:associations',
-            'type'       => 'required|max:255',
-            'head'       => 'required|max:255',
-            'contact'    => 'required|max:255',
-            'color'      => 'required|max:255'
+            'name_short'        => 'required|unique:associations',
+            'name_full'         => 'required|unique:associations',
+            'type'              => 'required|max:255',
+            'association_head'  => 'required|max:255',
+            'contact'           => '    required|max:255',
+            'association_color' => 'required|max:255'
         ],[
             'name_short.required' => 'Association shortname is required.',
             'name_short.unique'   => 'Association shortname must be unique.',

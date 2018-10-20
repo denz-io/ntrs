@@ -10,8 +10,8 @@ class Association extends Model
         'name_short',
         'name_full',
         'type',
-        'head',
+        'association_head',
         'contact',
-        'color'
+        'association_color'
     ];
 }
