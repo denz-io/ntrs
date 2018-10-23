@@ -97,9 +97,11 @@ updateNumbers = (id) => {
             passdata = false;
         }
     });
-    if (passdata) {
+    if (passdata && sticker != '' && body != '') {
         if (confirm("Update unit information?")) {
             window.location = `/update-unit-number/${id}/${sticker}/${body}`;
         }
+    } else {
+        sweetAlert("Missing information.", "Please add sticker number and body number", "error")
     }
 }

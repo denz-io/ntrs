@@ -10,7 +10,7 @@ $(document).ready(function () {
                             <div class="col-md-6" style="margin: auto;">
                                 <div class="row"> 
                                     <div class="col-md-2">
-                                        <img class="logo" src="${image_url}/images/Province_of_Biliran_Official_Seal.png">
+                                        <img class="logo" src="${image_url}images/Province_of_Biliran_Official_Seal.png">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="login-title">
@@ -21,7 +21,7 @@ $(document).ready(function () {
                                         </div>
                                     </div>
                                     <div class="col-md-2">
-                                        <img class="logo to-right" src="${image_url}/images/Naval_biliran_seal.png">
+                                        <img class="logo to-right" src="${image_url}images/Naval_biliran_seal.png">
                                     </div>
                                 </div>
                             </div>

@@ -84,7 +84,7 @@
                                             @else
                                                 <select value="{{$operator->association}}" name="association" class="form-control form-custom-select" id="drop-tricycle">
                                                     @foreach ($assoc as $as )
-                                                        @if($as->type == 'Sikad-sikad')
+                                                        @if($as->type == 'Tricycle')
                                                             <option>{{$as->name_short}}</option>
                                                         @endif
                                                     @endforeach

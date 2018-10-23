@@ -80,10 +80,10 @@ $('#units').on('change keyup', function() {
         `);    
         for (let i = 0; i < $('#units').val(); i++) {
             $("#bodynumber").append(`
-                <input type="text" class="form-custom bnumber" id="bi_${i}" placeholder="Body #" required>
+                <input type="text" class="form-custom bnumber" id="bi_${i}" placeholder="Body ${i + 1}" required>
             `);    
             $("#stickernumber").append(`
-                <input type="text" class="form-custom snumber" id="si_${i}" placeholder="Sticker #" required>
+                <input type="text" class="form-custom snumber" id="si_${i}" placeholder="Sticker ${i + 1}" required>
             `);    
         }
     }
