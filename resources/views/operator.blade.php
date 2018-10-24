@@ -43,7 +43,7 @@
                                     <td>{{$operator->type}}</td>
                                     @foreach($assoc as $ass)
                                         @if($ass->name_short == $operator->association)
-                                            <td style="color: {{$ass->color}};">
+                                            <td style="color: {{$ass->association_color}};">
                                                 <strong>{{$operator->association}}</strong>
                                             </td>
                                         @endif

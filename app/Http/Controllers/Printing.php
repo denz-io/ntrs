@@ -21,7 +21,7 @@ class Printing extends Controller
     {
         switch($request->type) {
             case 'operator':    
-                return Operator::find($request->id);
+                return Operator::whereId($request->id)->with('getAssociation.getRoutes')->first();
                 break;
             case 'association':     
                 return Association::find($request->id);
@@ -39,7 +39,7 @@ class Printing extends Controller
     {
         switch($request->type) {
             case 'operator':    
-                return Operator::all();
+                return Operator::with('getAssociation.getRoutes')->get();
                 break;
             case 'association':     
                 return Association::all();
@@ -138,7 +138,7 @@ class Printing extends Controller
     {
         switch($type) {
             case 'operator':    
-                return Operator::find($id);
+                return Operator::whereId($id)->with('getAssociation.getRoutes')->first();
                 break;
             case 'association':     
                 return Association::find($id);

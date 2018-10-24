@@ -14,4 +14,10 @@ class Association extends Model
         'contact',
         'association_color'
     ];
+
+    public function getRoutes()
+    {
+        return $this->hasMany('App\Models\Route', 'assoc_id', 'id');
+    }
+
 }

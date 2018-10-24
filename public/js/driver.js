@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#assoc-table').DataTable( {
+    $('#driver-table').DataTable( {
         "scrollX": true,
     } );
 });

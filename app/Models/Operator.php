@@ -20,4 +20,9 @@ class Operator extends Model
         'sticker_number',     
         'is_active'
     ];
+
+    public function getAssociation()
+    {
+        return $this->belongsTo('App\Models\Association', 'association', 'name_short');
+    }
 }

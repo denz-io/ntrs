@@ -1,3 +1,17 @@
+    
+.table thead th {
+    border:  1px solid;
+    text-align: center;
+}
+
+td {
+    border:  1px solid;
+}
+
+table {
+    border:  1px solid;
+}
+
 .print-main {
     padding-top: 40px; 
     padding-bottom: 20px;
@@ -7,10 +21,11 @@
 .act_profile {
     width: 200px;
     height: 200px;
+    border: 1px solid;
 }
 
 .logo { 
-    width: 50px;  
+    width: 90px;  
     margin-right: 10px; 
 }
 
@@ -24,10 +39,8 @@
 }
 
 .form-group-profile {
-    margin-top: 20px;
-    padding-left: 130px;
-    padding-top: 100px;
-    font-size: 20px;
+    text-align: center; 
+    padding-top: 50px;
     border-top: solid 3px silver;
 }
 

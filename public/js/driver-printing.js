@@ -40,6 +40,12 @@ $(document).ready(function () {
                                                 ${data.type}
                                             </div>
                                         </div>
+                                        <div class="info-user">
+                                            <b>Sticker Number:</b> 
+                                            <div style="text-align: center">
+                                                ${data.sticker_number}
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="info-user">
@@ -55,9 +61,9 @@ $(document).ready(function () {
                                             </div>
                                         </div>
                                         <div class="info-user">
-                                            <b>Sticker Number:</b> 
+                                            <b>Body Number:</b> 
                                             <div style="text-align: center">
-                                                ${data.sticker_number ? data.sticker_number :'none'}
+                                                ${data.body_number}
                                             </div>
                                         </div>
                                     </div>

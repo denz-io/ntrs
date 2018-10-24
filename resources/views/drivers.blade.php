@@ -15,7 +15,7 @@
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                 <div class="card-body">
-		    <table id="assoc-table" class="display nowrap" style="width:100%">
+		    <table id="driver-table" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>
@@ -24,6 +24,7 @@
 				<th>Address</th>
 				<th>Contact</th>
 				<th>Sticker No.</th>
+				<th>Body No.</th>
 				<th>Option</th>
 			    </tr>
 			</thead>
@@ -35,6 +36,7 @@
                                     <td>{{$driver->address}}</td>
                                     <td>{{$driver->contact}}</td>
                                     <td>{{$driver->sticker_number}}</td>
+                                    <td>{{$driver->body_number}}</td>
                                     <td>
                                         <a href="/view-operator/{{$driver->operator_id}}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View Operator</a>
                                         @if(Auth::user()->is_admin)

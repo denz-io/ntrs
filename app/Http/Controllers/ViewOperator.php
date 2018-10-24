@@ -30,7 +30,7 @@ class ViewOperator extends Controller
     public function destroy($id)
     {
         Oper::find($id)->delete();
-        return redirect('/')->withErrors(['success'=>'Record has been deleted.']);
+        return redirect('/operator')->withErrors(['success'=>'Record has been deleted.']);
     }
 
     public function store(Request $request)

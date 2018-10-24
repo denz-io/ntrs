@@ -39,7 +39,7 @@ function getSuggestedAssociation(type) {
        if (type == 'Tricycle') {
            $('#drop-tricycle').prop('value', result.assoc); 
        }
-    }).fail((error)=> { console.log(error); });
+    }).fail((error)=> {});
 }
 
 $('#snap').on('click',function() {
@@ -90,23 +90,48 @@ $('#units').on('change keyup', function() {
 
 });
 
-$("body").on("keyup", ".bnumber", function(){
-    body_numbers = [];
+$("body").on("keyup", ".bnumber", () => {
+    let body_numbers = [];
+    let track = '';
+    let valid = true;
     $('.bnumber').each((index) => {
-        if ($('#bi_'+index).val()) {
-            body_numbers.push($('#bi_'+index).val());
+        if (value = $('#bi_'+index).val()) {
+            body_numbers.push(value);
+            if (track != value) {
+                track = value;
+            } else {
+                valid = false;
+            }
         }
     });
-    $('#body_number').val(body_numbers.toString());
+
+    if (valid) {
+        $('#body_number').val(body_numbers.toString());
+    } else {
+        $('#body_number').val('');
+        sweetAlert("Duplicate Body Number entry.", "Body number must be unique, transaction will be invalid.", "error")
+    }
 });
 
-$("body").on("keyup", ".snumber", function(){
-    sticker_numbers = [];
+$("body").on("keyup", ".snumber", () => {
+    let sticker_numbers = [];
+    let track = '';
+    let valid = true;
     $('.snumber').each((index) => {
-        if ($('#si_'+index).val()) {
-            sticker_numbers.push($('#si_'+index).val());
+        if (value = $('#si_'+index).val()) {
+            sticker_numbers.push(value);
+            if (track != value) {
+                track = value;
+            } else {
+                valid = false;
+            }
         }
     });
-    $('#sticker_number').val(sticker_numbers.toString());
+    if (valid) {
+        $('#sticker_number').val(sticker_numbers.toString());
+    } else {
+        $('#sticker_number').val('');
+        sweetAlert("Duplicate Sticker Number entry.", "Sticker number must be unique, transaction will be invalid.", "error")
+    }
 });
 

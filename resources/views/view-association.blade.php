@@ -99,7 +99,7 @@
                    </button> 
                </div>
                 <div class="card-body">
-		    <table id="specific-driver" class="display" style="width:100%">
+		    <table id="specific-driver" class="display nowrap" style="width:100%">
 			<thead>
 			    <tr>
                                 <th style="text-align: center;">All <input type="checkbox" id="print_all" autocomplete="off" style="vertical-align: middle !important;"></th>

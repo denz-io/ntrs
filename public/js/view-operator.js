@@ -80,9 +80,27 @@ updateNumbers = (id) => {
     let sticker = [];
     let body = [];
     let passdata = true;
+    let hasdupplicate = true;
+    let tracker_sticker = '';
+    let tracker_body = '';
     $('.number_contianer').each((key,item) => {
         let input = $($(item).children()[1]).children();
+
+        if (tracker_sticker != $(input[0]).val()) {
+            tracker_sticker =  $(input[0]).val();
+        } else {
+            hasdupplicate = false;
+        }
+
+        if (tracker_body != $(input[1]).val()) {
+            tracker_body =  $(input[1]).val();
+        } else {
+            hasdupplicate = false;
+        }
+
+
         sticker.push($(input[0]).val());
+
         body.push($(input[1]).val());
 
         $(input[0]).css('border', '1px solid #D7D7D7');
@@ -98,8 +116,12 @@ updateNumbers = (id) => {
         }
     });
     if (passdata && sticker != '' && body != '') {
-        if (confirm("Update unit information?")) {
-            window.location = `/update-unit-number/${id}/${sticker}/${body}`;
+        if (hasdupplicate) {
+            if (confirm("Update unit information?")) {
+                window.location = `/update-unit-number/${id}/${sticker}/${body}`;
+            }
+        } else {
+            sweetAlert("Duplicate entries.", "Sticker and Body numbers must be unique", "error")
         }
     } else {
         sweetAlert("Missing information.", "Please add sticker number and body number", "error")
