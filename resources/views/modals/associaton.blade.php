@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label class="picker-label">Pick Color:</label>
-                <input type="color" class="picker-custom" name="color" required>
+                <input type="color" class="picker-custom" name="association_color" required>
             </div>
             <div class="form-group" style="text-align: center;">
                 <button class="btn btn-success custom-button-radius" type="submit" href="#">Create Association</button>
