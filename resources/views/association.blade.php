@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                <div class="card-header">
-                   <i class="fa fa-users fa-lg"></i> Associations 
+                   <i class="fa fa-users fa-lg"></i> Association 
                    @if(Auth::user()->is_admin == 2)
                        <button data-toggle="modal" data-target="#assoc-modal" class="btn btn-success to-right">
                            <i class="fa fa-plus fa-lg"></i> 
