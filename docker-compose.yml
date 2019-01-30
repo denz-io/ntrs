@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+    ntrs_mysql:
+        container_name: conception_mysql
+        image: mysql:5.7
+        ports:
+            - 5000:3306
+        volumes:
+            - ./db-data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        restart: always
+    ntrs:
+        container_name: conceptionart
+        image: denzdacs/react-laravel5.5-env:latest 
+        ports:
+            - 8000:80
+        volumes:
+            - .:/var/www/site
+        working_dir: /var/www/site
+        depends_on:
+            - conception_mysql 
+        restart: always
+volumes:
+    db-data:
+
