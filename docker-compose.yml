@@ -15,7 +15,7 @@ services:
         container_name: ntrs 
         image: denzdacs/react-laravel5.5-env:latest 
         ports:
-            - 8000:80
+            - 80:80
         volumes:
             - .:/var/www/site
         working_dir: /var/www/site
