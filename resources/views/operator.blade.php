@@ -56,7 +56,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{'/view-operator/' . $operator->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
+                                        <a href="{{'/view-operator/' . $operator->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View</a>
                                         @if(Auth::user()->is_admin)
                                             <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-success"><i class="fa fa-trash fa-lg"></i> Delete</a> 
                                         @endif

@@ -58,17 +58,17 @@ class Printing extends Controller
         $data = [];
         switch($request['type']) {
             case 'operator':    
-                if (count($found = Operator::where('operator', $request['query'])->get())) {
+                if (count($found = Operator::where('operator', $request['query'])->with('getAssociation.getRoutes')->get())) {
                     $data = $found;
                 }
-                if (count($found = Operator::where('association', $request['query'])->get())) {
+                if (count($found = Operator::where('association', $request['query'])->with('getAssociation.getRoutes')->get())) {
                     $data = $found;
                 }
-                if (count($found = Operator::where('type', $request['query'])->get())) {
+                if (count($found = Operator::where('type', $request['query'])->with('getAssociation.getRoutes')->get())) {
                     $data = $found;
                 }
                 if (strtolower($request['query']) == 'active' || strtolower($request['query']) == 'inactive') {
-                    if ($found = Operator::where('is_active', strtolower($request['query']) == 'active' ? 1 : 0)->get()) {
+                    if ($found = Operator::where('is_active', strtolower($request['query']) == 'active' ? 1 : 0)->with('getAssociation.getRoutes')->get()) {
                         $data = $found;
                     }
                 }

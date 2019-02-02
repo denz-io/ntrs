@@ -15,9 +15,9 @@
                            <label style="color:{{$assoc->association_color}}">{{$assoc->name_short}}</label>
                        </i> 
                        <button onClick="updateAssoc()" type="submit" class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-pencil-square-o fa-lg"></i> Update</button>
-                       <button onClick="deleteAssoc({{$assoc->id}})" class="btn btn-danger custom-button-table to-right" style="margin-right: 10px;"><i class="fa fa-trash"></i> Delete</button>
+                       <button onClick="deleteAssoc({{$assoc->id}})" class="btn btn-success custom-button-table to-right" style="margin-right: 10px;"><i class="fa fa-trash"></i> Delete</button>
                    @endif
-                   <button  onClick="printSingleItem('association', {{$assoc->id}})"  class="btn btn-info to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <button  onClick="printSingleItem('association', {{$assoc->id}})"  class="btn btn-success to-right" style="margin-right: 10px;"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                <form  id="form-assoc" action="/association/update" method="POST">
@@ -52,7 +52,7 @@
                                             <label for="name">Contact:</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input class="form-control form-custom" value="{{$assoc->contact}}" type="text" name="contact" required>
+                                            <input class="form-control form-custom" value="{{$assoc->name_full}}" type="text" name="name_full" required>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                            <i class="fa fa-plus fa-lg"></i> Register New Route
                        </button>
                    @endif
-                   <button  onClick="printItems('route')" class="btn btn-info to-right" style="margin-right: 10px;">
+                   <button  onClick="printItems('route')" class="btn btn-success to-right" style="margin-right: 10px;">
                         <i class="fa fa-print fa-lg"></i> Print
                    </button> 
                </div>
@@ -135,7 +135,7 @@
                                         <button data-toggle="modal" data-id="{{$route->id}}" data-route_start="{{$route->route_start}}" data-route_end="{{$route->route_end}}" data-rate="{{$route->rate}}" data-rate_discounted="{{$route->rate_discounted}}" data-target="#update-route-modal" class="btn btn-success">
                                             <i class="fa fa-pencil-square-o fa-lg"></i> Update  
                                         </button>
-                                        <button onClick="deleteRoute({{$route->id}})" class="btn btn-danger">
+                                        <button onClick="deleteRoute({{$route->id}})" class="btn btn-success">
                                             <i class="fa fa-trash fa-lg"></i> Delete  
                                         </button>
                                     </td> 

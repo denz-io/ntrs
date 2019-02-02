@@ -20,7 +20,7 @@
               @endif
               <div class="form-group number_contianer" >
                   @if(Auth::user()->is_admin)
-                      <button onClick="removeInput(event)" type="button" class="btn btn-success" style="margin: 0px 0px 10px 0px;">
+                      <button onClick="removeInput(event)" type="button" class="btn btn-danger" style="margin: 0px 0px 10px 0px;">
                           <i class="fa fa-ban fa-lg"></i>
                       </button>
                   @endif
@@ -28,7 +28,7 @@
                       Stickers Number:
                       <input type="text" class="form-control form-custom" value="{{$sticker_number}}" placeholder="Sticker Number" required>
                       Body Number:
-                      <input type="text" class="form-control form-custom" value="{{$body_numbers[$key]}}" placeholder="Body Number" required>
+                      <input type="text" class="form-control form-custom" value="{{$body_numbers[$key]}}" placeholder="Body Number" disabled required>
                   </div>
               </div>
           @endforeach

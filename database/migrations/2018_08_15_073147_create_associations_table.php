@@ -17,10 +17,10 @@ class CreateAssociationsTable extends Migration
             $table->increments('id');
             $table->string('name_short')->unique();
             $table->string('name_full')->unique();
+            $table->string('association_color')->unique();
             $table->string('type');
-            $table->string('head');
+            $table->string('association_head');
             $table->string('contact');
-            $table->string('color');
             $table->timestamps();
         });
     }

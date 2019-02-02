@@ -63,7 +63,7 @@ removeInput = event => {
 addNumberContainer = () => {
     $('#main_number_container').append(`
         <div class="form-group number_contianer" >
-            <button onClick="removeInput(event)" type="button" class="btn btn-success" style="margin: 0px 0px 10px 0px;">
+            <button onClick="removeInput(event)" type="button" class="btn btn-danger" style="margin: 0px 0px 10px 0px;">
                 <i class="fa fa-ban fa-lg"></i>
             </button>
             <div style="padding-top: 5px;">

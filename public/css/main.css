@@ -18,17 +18,6 @@ body{
     font-size: 14px;
 }
 
-.btn {
-    font-size: 14px;
-    background-color: green !important;
-    border: #DE538B;
-}
-
-.btn:hover { 
-    background-color: #B3FF9E !important;
-    color: black;
-}
-
 .picker-custom {
     width: 100%;
     height: 37px;

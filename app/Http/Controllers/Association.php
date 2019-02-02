@@ -35,13 +35,14 @@ class Association extends Controller
 
     public function update(Request $request)
     {
-        if (!Assoc::where('name_short', '=',$request->name_short)->where('id', '!=', $request->id)->first() || 
-            !Assoc::where('name_full', '=',$request->name_short)->where('id', '!=', $request->id)->first()) {
+        if (!Assoc::where('name_short', '=',$request->name_short)->where('id', '!=', $request->id)->first() && 
+            !Assoc::where('name_full', '=',$request->name_short)->where('id', '!=', $request->id)->first() && 
+            !Assoc::where('association_color', '=',$request->association_color)->where('id', '!=', $request->id)->first()) {
             Assoc::find($request->id)->update($request->all());
             Alert::success('Success!', 'Information has been updated.');
             return redirect()->back();
         } else {
-            Alert::error('Error!', 'Association names are already taken.');
+            Alert::error('Error!', 'Duplicates are not allowed for this entry.');
             return redirect()->back();
         }
     }
@@ -51,15 +52,16 @@ class Association extends Controller
         $request->validate([
             'name_short'        => 'required|unique:associations',
             'name_full'         => 'required|unique:associations',
-            'type'              => 'required|max:255',
+            'association_color' => 'required|unique:associations',
             'association_head'  => 'required|max:255',
-            'contact'           => '    required|max:255',
-            'association_color' => 'required|max:255'
+            'type'              => 'required|max:255',
+            'contact'           => 'required|max:255',
         ],[
-            'name_short.required' => 'Association shortname is required.',
-            'name_short.unique'   => 'Association shortname must be unique.',
-            'name_full.required'  => 'Association name must is required.',
-            'name_full.unique'    => 'Association name must be unique.',
+            'name_short.required'      => 'Association shortname is required.',
+            'name_short.unique'        => 'Association shortname must be unique.',
+            'name_full.required'       => 'Association name must is required.',
+            'name_full.unique'         => 'Association name must be unique.',
+            'association_color.unique' => 'Association collor must be unique.',
         ]);
     }
 

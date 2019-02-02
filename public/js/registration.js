@@ -135,3 +135,33 @@ $("body").on("keyup", ".snumber", () => {
     }
 });
 
+var new_name = '';
+const FirstLetterToUpper = (event)  => {
+    let text_val  = event.target.value;
+    let name_array = text_val.split(/ /);
+    new_name = '';
+
+    name_array.forEach((val, key) => {
+        if (key+1 != name_array.length) {
+            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1) + ' ';
+        } else {
+            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1);
+        }
+    });
+};
+
+const SetFormatedText = (event) => {
+    $(event.target).val(new_name);
+    setOperator();
+};
+
+const setOperator = () => {
+    let first_name = $('#first_name').val();   
+    let last_name = $('#last_name').val();   
+    let middle_name = $('#middle_name').val();   
+    if (first_name && last_name && middle_name) {
+        $('#operator').val(last_name + ', ' + first_name + ', ' + middle_name);
+    }
+}
+setOperator();
+

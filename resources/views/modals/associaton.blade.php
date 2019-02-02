@@ -26,7 +26,7 @@
                 <input type="text" class="form-control form-custom" name="association_head" placeholder="Head of Associaton" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control form-custom" name="contact" placeholder="Contact" required>
+                <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
             </div>
             <div class="form-group">
                 <label class="picker-label">Pick Color:</label>

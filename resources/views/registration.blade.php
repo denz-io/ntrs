@@ -53,9 +53,17 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="operator" placeholder="(Last Name,First Name,Middle Name)" required> </div>
+                                    <input type="hidden" id="operator" name="operator" required> 
+                                    <input type="text" onBlur="SetFormatedText(event)" onKeyup="FirstLetterToUpper(event)" class="form-control form-custom" id="last_name" placeholder="(Last Name)" required> 
+                                </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                    <input type="text"  onBlur="SetFormatedText(event)" onKeyup="FirstLetterToUpper(event)" class="form-control form-custom" id="first_name" id="first_name" placeholder="(First Name)" required> 
+                                </div>
+                                <div class="form-group">
+                                    <input type="text"  onBlur="SetFormatedText(event)" onKeyup="FirstLetterToUpper(event)" class="form-control form-custom" id="middle_name" id="middle_name" placeholder="(Middle Name)" required> 
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" maxlength="11" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
                                 </div>
                                 <div class="form-group">
                                     <select name="address" class="form-control form-custom-select">
@@ -79,10 +87,10 @@
                                     <input type="hidden" class="form-control form-custom" id="sticker_number" name="sticker_number" placeholder="Body Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
+                                    <input type="number" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
+                                    <input type="number" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
                                 </div>
                                 <div class="to-center">
                                     <button type="submit" data-toggle="tooltip" title="Upload image to enable button." id="register-submit" class="btn btn-success custom-button" >

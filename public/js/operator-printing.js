@@ -3,6 +3,7 @@ $(document).ready(function () {
     let table_content = '';
     $.each(toPrint,(key,data) => {
         table_content = '';
+        console.log(data);
         $.each(data.get_association.get_routes, (key,data) => {
                 table_content += `<tr>
                     <td> ${data.route_start} </td>

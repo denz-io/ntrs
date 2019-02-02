@@ -45,7 +45,7 @@
                                     <td>{{$association->association_head}}</td>
                                     <td>{{$association->type}}</td>
                                     <td>
-                                        <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> More</a>
+                                        <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View</a>
                                         @if(Auth::user()->is_admin)
                                             <button onClick="deleteAssoc({{$association->id}})" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</button>
                                         @endif

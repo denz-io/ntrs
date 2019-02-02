@@ -99,7 +99,7 @@
                                             <label for="name">Contact Number:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input  value="{{$operator->contact}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" required>
+                                            <input  maxlength="11" value="{{$operator->contact}}" type="text" class="form-control form-custom" name="contact" placeholder="Contact Number" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                             <label for="name">O.R. Number:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input  value="{{$operator->or_number}}" type="text" class="form-control form-custom" name="or_number" placeholder="O.R. Number" required>
+                                            <input  value="{{$operator->or_number}}" type="number" class="form-control form-custom" name="or_number" placeholder="o.r. number" required>
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@
                                             <label for="name">Amount paid:</label>
                                         </div>
                                         <div class="col-md-9">
-                                            <input  value="{{$operator->amount_paid}}" type="text" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
+                                            <input  value="{{$operator->amount_paid}}" type="number" class="form-control form-custom" id="amount_paid" name="amount_paid" placeholder="Amount Paid" required>
                                         </div>
                                     </div>
                                 </div>
