@@ -11,7 +11,7 @@
             <div class="card">
                <div class="card-header">
                    <i class="fa fa-motorcycle fa-lg"></i> Drivers 
-                   <button  onClick="printItems('driver')" class="btn btn-success to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <button  onClick="printItems('driver')" class="btn btn-primary to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                </div>
                 <div class="card-body">
@@ -40,7 +40,7 @@
                                     <td>
                                         <a href="/view-operator/{{$driver->operator_id}}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View Operator</a>
                                         @if(Auth::user()->is_admin)
-                                            <a onClick="deleteDelete({{$driver->id}})" href="#" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</a>
+                                            <a onClick="deleteDelete({{$driver->id}})" href="#" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</a>
                                         @endif
                                         </td>
                                 </tr>

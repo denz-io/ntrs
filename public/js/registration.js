@@ -143,9 +143,9 @@ const FirstLetterToUpper = (event)  => {
 
     name_array.forEach((val, key) => {
         if (key+1 != name_array.length) {
-            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1) + ' ';
+            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1).toLowerCase() + ' ';
         } else {
-            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1);
+            new_name = new_name + val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
         }
     });
 };

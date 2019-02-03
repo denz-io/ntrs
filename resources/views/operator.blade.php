@@ -12,7 +12,7 @@
                 <div class="card-header">
                    <i class="fa fa-male fa-lg"> Operator</i> 
                    @if(Auth::user()->is_admin == 2)
-                       <button  onClick="deactivateAll()" class="btn btn-success to-right" style="margin-left: 10px;">
+                       <button  onClick="deactivateAll()" class="btn btn-warning to-right" style="margin-left: 10px;">
                            <i class="fa fa-thumbs-down fa-lg"></i>
                            Deactivate all accounts
                        </button> 
@@ -21,7 +21,7 @@
                            Activate all accounts
                        </button> 
                    @endif
-                   <button  onClick="printItems('operator')" class="btn btn-success to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
+                   <button  onClick="printItems('operator')" class="btn btn-info to-right"><i class="fa fa-print fa-lg"></i> Print</button> 
                    <input id="csrf_token" type="hidden" value="{{ csrf_token() }}">
                 </div>
                 <div class="card-body">
@@ -58,7 +58,7 @@
                                     <td>
                                         <a href="{{'/view-operator/' . $operator->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View</a>
                                         @if(Auth::user()->is_admin)
-                                            <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-success"><i class="fa fa-trash fa-lg"></i> Delete</a> 
+                                            <a href="#" onClick="deleteOperator({{$operator->id}})" class="btn btn-danger"><i class="fa fa-trash fa-lg"></i> Delete</a> 
                                         @endif
                                     </td>
                                 </tr>

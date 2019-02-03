@@ -40,7 +40,7 @@
                                     @if(Auth::user()->is_admin == 2)
                                         <td>
                                             <a href="#" data-id="{{$user->id}}" data-fname="{{$user->fname}}" data-lname="{{$user->lname}}" data-is_admin="{{$user->is_admin}}" data-username="{{$user->username}}" data-toggle="modal" data-target="#users-update-modal" class="btn btn-success custom-button-table"><i class="fa fa-pencil-square-o"></i> Update</a>
-                                            <a onClick="deleteDelete({{$user->id}})" href="#" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</a>
+                                            <a onClick="deleteDelete({{$user->id}})" href="#" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     @endif
                                 </tr>

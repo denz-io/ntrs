@@ -17,7 +17,7 @@
                            Add new Association
                        </button>
                    @endif
-                   <button  onClick="printItems('association')" class="btn btn-success to-right" style="margin-right: 10px;">
+                   <button  onClick="printItems('association')" class="btn btn-primary to-right" style="margin-right: 10px;">
                        <i class="fa fa-print fa-lg"></i> 
                        Print
                    </button> 
@@ -47,7 +47,7 @@
                                     <td>
                                         <a href="{{'/association/view/' . $association->id }}" class="btn btn-success custom-button-table"><i class="fa fa-info"></i> View</a>
                                         @if(Auth::user()->is_admin)
-                                            <button onClick="deleteAssoc({{$association->id}})" class="btn btn-success custom-button-table"><i class="fa fa-trash"></i> Delete</button>
+                                            <button onClick="deleteAssoc({{$association->id}})" class="btn btn-danger custom-button-table"><i class="fa fa-trash"></i> Delete</button>
                                         @endif
                                         </td>
                                 </tr>

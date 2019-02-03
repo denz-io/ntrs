@@ -13,7 +13,7 @@
                    <i class="fa fa-info-circle fa-lg"> {{$operator->type}} Operator </i> 
                    <strong>{{$operator->is_active ? '(Active)' : '(Inactive)'}}</strong>
                    @if(Auth::user()->is_admin == 2)
-                       <button  onClick="accountStatus({{$operator->id}})" class="btn btn-warning">
+                       <button  onClick="accountStatus({{$operator->id}})" class="btn {{$operator->is_active ? "btn-warning" : 'btn-success' }}">
                            <i class="fa fa-{{ $operator->is_active ? 'thumbs-down' : 'thumbs-up'}} fa-lg"></i>
                            {{$operator->is_active ? "Deactivate" : 'Activate' }}
                        </button> 
