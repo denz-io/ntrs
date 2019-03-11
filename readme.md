@@ -3,10 +3,10 @@
 NTRS is a registtration system for small public vehicles present in the Philippines, such as tricycles and pedicabs. 
 
 ## Features
-- Registartion of Operator and Driver information.
+- Registration of Operator and Drivers.
+- Ability to view information collected.
 - Listing of Routes and Brgy addresses.
-- Easy Access to fair information.
-- You can print out all relevant information presented ib tables.
+- You can print out all relevant information presented in tables.
 - Ability to renew Operator registration.
 - SMS capabilities using NEXMO API
 
