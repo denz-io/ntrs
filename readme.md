@@ -10,8 +10,10 @@ NTRS is a registtration system for small public vehicles present in the Philippi
 - Ability to renew Operator registration.
 - SMS capabilities using NEXMO API
 
-Powered by Larvel.
 
 ## Collaborators
 
+
+
+Powered by https://laravel.com/
 
