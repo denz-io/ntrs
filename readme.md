@@ -13,7 +13,12 @@ NTRS is a registtration system for small public vehicles present in the Philippi
 
 ## Collaborators
 
-
+Demate, Kent
+Floro, Kristine Joy
+Aljo, Jessa
+Nillos, Noelyn
+Badon, Robert Roy
+Apolan, Marlou
 
 Powered by https://laravel.com/
 
