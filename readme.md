@@ -21,9 +21,9 @@ For SMS messeging to work you need to add your Nexmo credentials in the .env fil
 
 Once your local environemnt is setup properly got to project directory and the following:
 
--php artisan key:generate 
--php artisan migrate 
--php artisan server
+- php artisan key:generate 
+- php artisan migrate 
+- php artisan server
 
 ## Collaborators
 
