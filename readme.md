@@ -14,7 +14,7 @@ This was engineered with the specifications required by LGU Naval.
 
 ## How to Deploy
 
-Download or run "git clone https://github.com/denzdacs/pos-ems.git" in terminal.
+Download or run "https://github.com/denzdacs/ntrs.git" in terminal.
 Please refer to Laravel documentation if this is your first time to use Laravel.
 
 For SMS messeging to work you need to add your Nexmo credentials in the .env file.
