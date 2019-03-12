@@ -27,12 +27,12 @@ Once your local environemnt is setup properly got to project directory and the f
 
 ## Collaborators
 
--Demate, Kent
--Floro, Kristine Joy
--Aljo, Jessa
--Nillos, Noelyn
--Badon, Robert Roy
--Apolan, Marlou
+- Demate, Kent
+- Floro, Kristine Joy
+- Aljo, Jessa
+- Nillos, Noelyn
+- Badon, Robert Roy
+- Apolan, Marlou
 
 ## Powered By Laravel
 
