@@ -1,6 +1,8 @@
 ## About NTRS
 
 NTRS is a registtration system for small public vehicles present in the Philippines, such as tricycles and pedicabs. 
+</br>
+This was engineered with the specifications required by LGU Naval. 
 
 ## Features
 - Registration of Operator and Drivers.
@@ -25,12 +27,12 @@ Once your local environemnt is setup properly got to project directory and the f
 
 ## Collaborators
 
-Demate, Kent
-Floro, Kristine Joy
-Aljo, Jessa
-Nillos, Noelyn
-Badon, Robert Roy
-Apolan, Marlou
+-Demate, Kent
+-Floro, Kristine Joy
+-Aljo, Jessa
+-Nillos, Noelyn
+-Badon, Robert Roy
+-Apolan, Marlou
 
 ## Powered By Laravel
 
