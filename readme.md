@@ -19,7 +19,7 @@ For SMS messeging to work you need to add your Nexmo credentials in the .env fil
 Once your local environemnt is setup properly got to project directory and do the following:
 
 - composer install *if you are not using docker you need to install composer first on your local environment*
-- update set up your mysql credentials in .env *if you are using docker make sure that your db host is the name of your mysql container the defauly name in docker file is ntrs_mysql*
+- set up your mysql credentials in .env *if you are using docker make sure that your db host is the name of your mysql container the defauly name in docker file is ntrs_mysql*
 - php artisan key:generate 
 - php artisan migrate 
 - php artisan server
