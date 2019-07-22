@@ -16,7 +16,7 @@ This was engineered with the specifications required by LGU Naval.
 
 Please refer to Laravel documentation if this is your first time to use Laravel.
 For SMS messeging to work you need to add your Nexmo credentials in the .env file.
-Once your local environemnt is setup properly got to project directory and the following:
+Once your local environemnt is setup properly got to project directory and do the following:
 
 - composer install *if you are not using docker you need to install composer first on your local environment*
 - update set up your mysql credentials in .env *if you are using docker make sure that your db host is the name of your mysql container the defauly name in docker file is ntrs_mysql*
