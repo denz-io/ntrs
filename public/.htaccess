@@ -19,8 +19,8 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    AuthUserFile /var/www/site/.htpasswd
-    AuthType Basic
-    AuthName "ntrs admin access"
-    Require valid-user
+    #AuthUserFile /var/www/site/.htpasswd
+    #AuthType Basic
+    #AuthName "ntrs admin access"
+    #Require valid-user
 </IfModule>
