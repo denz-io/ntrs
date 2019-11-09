@@ -14,16 +14,20 @@ This was engineered with the specifications required by LGU Naval.
 
 ## How to Deploy
 
-Download or run "https://github.com/denzdacs/ntrs.git" in terminal.
 Please refer to Laravel documentation if this is your first time to use Laravel.
-
 For SMS messeging to work you need to add your Nexmo credentials in the .env file.
+Once your local environemnt is setup properly got to project directory and do the following:
 
-Once your local environemnt is setup properly got to project directory and the following:
-
+- composer install *if you are not using docker you need to install composer first on your local environment*
+- set up your mysql credentials in .env *if you are using docker make sure that your db host is the name of your mysql container the defauly name in docker file is ntrs_mysql*
 - php artisan key:generate 
 - php artisan migrate 
 - php artisan server
+
+## Easy deploy with docker.
+
+Download docker and docker-compose. Once you have those installed simply run docker-compose up inside the project 
+directroy, follow the how to deploy instructions above and you shouldnt have any dependancy issues.
 
 ## Collaborators
 
